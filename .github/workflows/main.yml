@@ -22,7 +22,7 @@ jobs:
           # 拉取 Coding 代码并合并到当前分支
           git pull coding master --rebase --allow-unrelated-histories
           # 推送更新到 GitHub
-          git push origin main
+          git push origin master
         env:
           # 使用 Secrets 中的用户名和 Token 认证
           GIT_USERNAME: ${{ secrets.CODING_USERNAME }}
