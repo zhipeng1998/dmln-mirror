@@ -1,3 +1,12 @@
-node_modules
-build
-dist
+/node_modules
+/.env.local
+/config/config.local.ts
+/dist
+/.mfsu
+/.idea
+/yarn.lock
+.history
+
+/src/transfer.json
+.yarn/install-state.gz
+.yarnrc.yml

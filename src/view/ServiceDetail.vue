@@ -7,19 +7,25 @@
           <ul class="nav nav-tabs nav-stacked center-block" id="myNav">
             <p>特色服务</p>
             <li
-              :class="item.id==id?'active':''"
-              v-for="(item,index) in serviceNavList"
+              :class="item.id == id ? 'active' : ''"
+              v-for="(item, index) in serviceNavList"
               :key="index"
             >
-              <a :href="'#'+item.id">{{item.title}}</a>
+              <a href="javascript:;" @click.stop="toSection(item.id)">{{
+                item.title
+              }}</a>
             </li>
           </ul>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-9 content  wow zoomIn">
-          <div class="content-block" v-for="(item,index) in serviceContentList" :key="index">
+        <div class="col-xs-12 col-sm-12 col-md-9 content wow zoomIn">
+          <div
+            class="content-block"
+            v-for="(item, index) in serviceContentList"
+            :key="index"
+          >
             <h2 :id="item.id">
-              {{item.title}}
-              <small>/ {{item.eng_title}}</small>
+              {{ item.title }}
+              <small>/ {{ item.eng_title }}</small>
             </h2>
             <div v-html="item.content"></div>
           </div>
@@ -28,84 +34,102 @@
     </div>
   </div>
 </template>
-<script>
-import { WOW } from "wowjs";
-export default {
-  name: "ServiceDetail",
-  data() {
-    return {
-      id: "section-1",
-      serviceNavList: [
-        {
-          id: "section-1",
-          title: "软件定制开发"
-        },
-        {
-          id: "section-2",
-          title: "IT外包服务"
-        },
-        {
-          id: "section-3",
-          title: "网上商城建设"
-        },
-        {
-          id: "section-4",
-          title: "iOS应用定制开发"
-        }
-      ],
-      serviceContentList: [
-        {
-          id: "section-1",
-          title: "软件定制开发",
-          eng_title: "Customize App",
-          content:
-            "<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>"
-        },
-        {
-          id: "section-2",
-          title: "IT外包服务",
-          eng_title: "Outsourcing",
-          content:
-            "<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>"
-        },
-        {
-          id: "section-3",
-          title: "网上商城建设",
-          eng_title: "eCommerce Site",
-          content:
-            "<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>"
-        },
-        {
-          id: "section-4",
-          title: "iOS应用定制开发",
-          eng_title: "iOS App Dev",
-          content:
-            "<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>"
-        }
-      ]
-    };
+
+<script setup name="serviceDetail">
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import WOW from 'wow.js'
+const id = ref('section-1')
+const serviceNavList = [
+  {
+    id: 'section-1',
+    title: '软件定制开发'
   },
-  mounted() {
-    this.id = this.$route.params.id;
-    var top = document.getElementById(this.id).offsetTop;
-    $(window).scrollTop(top + 300);
-    $("#myNav").affix({
-      offset: {
-        top: 300
-      }
-    });
-    var wow = new WOW();
-    wow.init();
+  {
+    id: 'section-2',
+    title: 'IT外包服务'
+  },
+  {
+    id: 'section-3',
+    title: '网上商城建设'
+  },
+  {
+    id: 'section-4',
+    title: 'iOS应用定制开发'
   }
-};
+]
+const serviceContentList = [
+  {
+    id: 'section-1',
+    title: '软件定制开发',
+    eng_title: 'Customize App',
+    content:
+      '<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>'
+  },
+  {
+    id: 'section-2',
+    title: 'IT外包服务',
+    eng_title: 'Outsourcing',
+    content:
+      '<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>'
+  },
+  {
+    id: 'section-3',
+    title: '网上商城建设',
+    eng_title: 'eCommerce Site',
+    content:
+      '<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>'
+  },
+  {
+    id: 'section-4',
+    title: 'iOS应用定制开发',
+    eng_title: 'iOS App Dev',
+    content:
+      '<h3>这是标题1</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p><h3>这是标题2</h3><p>这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。这里是内容，请根据实际需要修改。</p>'
+  }
+]
+function toSection(_id) {
+  id.value = _id
+  let top = document.getElementById(id.value).offsetTop
+  $(window).scrollTop(top + 300)
+  $('#myNav').affix({
+    offset: {
+      top: 300
+    }
+  })
+}
+const route = useRoute()
+const props = defineProps({
+  id: {
+    type: String,
+    required: true
+    // default: 'section-1222'
+  }
+})
+onMounted(() => {
+  console.log('route：', route, route.params, route.query)
+  console.log('history.state：', history.state)
+  id.value = history.state.id
+  console.log(id.value, 'pp')
+  let top = document.getElementById(id.value).offsetTop
+  $(window).scrollTop(top + 300)
+  $('#myNav').affix({
+    offset: {
+      top: 300
+    }
+  })
+  var wow = new WOW()
+  wow.init()
+})
 </script>
+
 <style scoped>
 .banner {
   color: #fff;
   font-size: 30px;
   height: 150px;
   line-height: 150px;
-  background-image: url("../assets/img/banner_2.jpg");
+  background-image: url('../assets/img/banner_2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
