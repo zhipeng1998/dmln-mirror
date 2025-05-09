@@ -20,16 +20,18 @@ jobs:
         run: |
           # 添加 Coding 仓库为远程源
            git remote add coding "https://${{ secrets.CODING_USERNAME }}:${{ secrets.CODING_ACCESS_TOKEN }}@e.coding.net/lantiandev/lantianzhiwei/dmln.git"
-          # git remote add coding "${{ secrets.CODING_REPO_URL }}"
+           # git remote add target https://${{ secrets.GH_PAT }}@github.com/zhipeng1998/dmln-mirror.git
+           # git remote add coding "${{ secrets.CODING_REPO_URL }}"
           # https://e.coding.net/lantiandev/lantianzhiwei/dmln.git
           # 配置 Git 用户信息（与 Coding 账号无关）
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
-          # 拉取 Coding 代码并合并到当前分支
-          git pull coding master --rebase --allow-unrelated-histories
-          # 推送更新到 GitHub
+          # 拉取Coding代码（强制覆盖本地）
+          git fetch --force coding master:temp-master
+          git checkout master
+          git merge --allow-unrelated-histories --strategy-option theirs temp-master
+          
+          # 推送到GitHub
           git push origin master
-        # env:
-        #   # 使用 Secrets 中的用户名和 Token 认证
-        #   GIT_USERNAME: ${{ secrets.CODING_USERNAME }}
-        #   GIT_PASSWORD: ${{ secrets.CODING_ACCESS_TOKEN }}
+        env:
+          GIT_ASKPASS: "echo"  # 禁用交互式密码提示
