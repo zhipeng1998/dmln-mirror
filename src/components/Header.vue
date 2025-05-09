@@ -1,32 +1,14 @@
 <template>
   <!-- 头部整体盒子 -->
   <div id="header" class="container-fuild">
-    <!-- 头部顶部 -->
-    <div class="header-top container-fuild hidden-xs">
-      <div class="container">
-        <div class="server pull-left">
-          <span class="glyphicon glyphicon-earphone"></span>{{ phone }}
-          <span class="glyphicon glyphicon-envelope"></span>{{ email }}
-          <span class="glyphicon glyphicon-time"></span>7x24小时为您服务
-        </div>
-        <div class="shejiao pull-right">
-          <span class="glyphicon glyphicon-hand-right"></span>赶快联系我们吧！
-          <span class="glyphicon glyphicon-hand-left"></span>
-
-          <a
-            href="https://github.com/neveryu"
-            target="_blank"
-            style="color: #fc5531; font-size: 18px; cursor: pointer"
-            >Github</a
-          >
-        </div>
-      </div>
-    </div>
     <!-- 电脑导航 -->
     <div class="header-nav container hidden-xs">
       <!-- 导航logo -->
       <div class="header-nav-logo">
-        <img src="@/assets/img/logo_black.png" />
+        <div class="header-logo-container">
+          <img src="@/assets/img/brcc-logo.png" />
+          <span>东铭绿能</span>
+        </div>
       </div>
       <!-- 导航内容 -->
       <ul class="header-nav-wrapper">
@@ -94,71 +76,52 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
-const phone = import.meta.env.VITE_APP_PHONE
-const email = import.meta.env.VITE_APP_EMAIL
-const navIndex = ref('')
-navIndex.value = sessionStorage.getItem('navIndex')
-  ? sessionStorage.getItem('navIndex')
-  : 0
-const menuName = ref('首页')
-const menuClass = ref('glyphicon glyphicon-menu-down')
+import { ref, reactive } from "vue";
+const phone = import.meta.env.VITE_APP_PHONE;
+const email = import.meta.env.VITE_APP_EMAIL;
+const navIndex = ref("");
+navIndex.value = sessionStorage.getItem("navIndex")
+  ? sessionStorage.getItem("navIndex")
+  : 0;
+const menuName = ref("首页");
+const menuClass = ref("glyphicon glyphicon-menu-down");
 const navList = [
   {
-    name: '首页',
-    path: '/',
-    children: []
+    name: "网站首页",
+    path: "/",
+    children: [],
   },
   {
-    name: '软件产品',
-    path: '/software',
-    children: [
-      {
-        name: '智能小镇管理系统',
-        path: '/software/smartTown'
-      },
-      {
-        name: '大数据管理系统',
-        path: '/software/bigData'
-      }
-    ]
+    name: "产品与解决方案",
+    path: "/software",
+    children: [],
   },
   {
-    name: '相关服务',
-    path: '/service',
-    children: []
+    name: "新闻与动态",
+    path: "/service",
+    children: [],
   },
   {
-    name: '新闻动态',
-    path: '/newsinformation',
-    children: []
+    name: "在线留言",
+    path: "/newsinformation",
+    children: [],
   },
   {
-    name: '公司介绍',
-    path: '/companyintroduction',
-    children: []
+    name: "联系我们",
+    path: "/companyintroduction",
+    children: [],
   },
-  {
-    name: '工作机会',
-    path: '/jobchance',
-    children: []
-  },
-  {
-    name: '联系我们',
-    path: '/contactus',
-    children: []
-  }
-]
+];
 function navClick(index, name) {
-  navIndex.value = index
-  sessionStorage.setItem('navIndex', index)
-  menuName.value = name
+  navIndex.value = index;
+  sessionStorage.setItem("navIndex", index);
+  menuName.value = name;
 }
 function menuClick() {
-  if (menuClass.value == 'glyphicon glyphicon-menu-down') {
-    menuClass.value = 'glyphicon glyphicon-menu-up'
+  if (menuClass.value == "glyphicon glyphicon-menu-down") {
+    menuClass.value = "glyphicon glyphicon-menu-up";
   } else {
-    menuClass.value = 'glyphicon glyphicon-menu-down'
+    menuClass.value = "glyphicon glyphicon-menu-down";
   }
 }
 </script>
@@ -166,8 +129,13 @@ function menuClick() {
 <style scoped>
 /* 顶部 */
 #header {
-  background: #f4f4f4;
+  background: #c7e2f5;
   transition: all ease 0.6s;
+  position: fixed; /* 固定在顶部 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 #header .header-top {
@@ -185,12 +153,12 @@ function menuClick() {
 
 /* 导航栏 */
 #header .header-nav {
-  height: 110px;
+  height: 80px;
 }
 
 /* 导航栏logo */
 #header .header-nav .header-nav-logo {
-  width: 100px;
+  width: 120px;
   height: 100%;
   float: left;
   position: relative;
@@ -198,14 +166,17 @@ function menuClick() {
 
 /* 导航栏logo图片 */
 #header .header-nav .header-nav-logo img {
-  width: 95px;
-  height: 45px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100px;
+  height: 30px;
   margin: auto;
+}
+
+#header .header-nav .header-nav-logo span {
+  display: inline;
+  font-size: 25px;
+  font-style: italic;
+  font-weight: bolder;
+  padding-left: 5px;
 }
 
 /* 导航栏 导航容器 */
@@ -214,7 +185,7 @@ function menuClick() {
 }
 
 #header .header-nav .header-nav-wrapper {
-  line-height: 110px;
+  line-height: 80px;
   float: right;
   margin: 0;
   max-width: 800px;
@@ -266,6 +237,11 @@ function menuClick() {
   opacity: 1;
   width: 100%;
   left: 0;
+}
+
+.header-logo-container {
+  position: relative;
+  top: 10px;
 }
 
 /* 导航栏 每个导航下面的 a 链接 鼠标滑上去三角标的样式 */
@@ -392,4 +368,3 @@ function menuClick() {
   }
 }
 </style>
-

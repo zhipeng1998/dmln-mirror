@@ -7,11 +7,13 @@
       :slides-per-view="1"
       :space-between="0"
       navigation
+      indicator-color="#fff"
       lazy
       loop
       autoplay
       :pagination="{
-        clickable: true
+        clickable: true,
+        el: '.swiper-pagination',
       }"
     >
       <swiper-slide
@@ -26,19 +28,24 @@
           <p>{{ item.content }}</p>
         </div>
       </swiper-slide>
+      <div class="swiper-pagination"></div>
     </swiper>
 
-    <!-- 大数据管理系统 -->
+    <!-- 关于我们 -->
     <div id="bigData" class="container-fuild">
+      <div>
+        <h1 class="text-center">关于我们</h1>
+        <h3 class="text-center">ABOUT US</h3>
+      </div>
       <div class="row bigData-container">
-        <div class="col-xs-12 col-sm-12 col-md-6 wow zoomIn">
+        <div class="col-xs-12 col-sm-12 col-md-4 wow zoomIn">
           <img
             class="img-responsive"
-            src="@/assets/img/img1.png"
-            alt="大数据管理系统"
+            src="@/assets/img/Aboutus-L.png"
+            alt="东铭绿能"
           />
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6">
+        <div class="col-xs-12 col-sm-12 col-md-4">
           <h2 class="bigData-title">
             大数据管理系统
             <small>/ Big Data Management System</small>
@@ -53,6 +60,13 @@
           <a href="javascript:;" class="btn btn-lg btn-block btn-info"
             >联系我们</a
           >
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 wow zoomIn">
+          <img
+            class="img-responsive"
+            src="@/assets/img/img1.png"
+            alt="东铭绿能"
+          />
         </div>
       </div>
     </div>
@@ -90,7 +104,7 @@
           loop
           autoplay
           :pagination="{
-            clickable: true
+            clickable: true,
           }"
         >
           <swiper-slide
@@ -169,164 +183,167 @@
 </template>
 
 <script setup name="HomePage">
-import WOW from 'wow.js'
-import { getCurrentInstance, onMounted } from 'vue'
+import WOW from "wow.js";
+import { getCurrentInstance, onMounted } from "vue";
 // import Swiper from 'swiper'
-import { Navigation, Pagination, Scrollbar, A11y, Lazy, Autoplay } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import 'swiper/css/scrollbar'
-import 'swiper/css/lazy'
-import 'swiper/css/autoplay'
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Lazy,
+  Autoplay,
+} from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/lazy";
+import "swiper/css/autoplay";
 
-import banner1 from '@/assets/img/banner1.png'
-import banner2 from '@/assets/img/banner2.jpg'
+import banner1 from "@/assets/img/banner1.jpeg";
+import banner2 from "@/assets/img/banner2.jpg";
+import banner3 from "@/assets/img/banner3.jpg";
 
-import logo_hp from '@/assets/img/logo_hp.png'
-import logo_kk from '@/assets/img/logo_kk.png'
-import logo_toyota from '@/assets/img/logo_toyota.png'
+import logo_hp from "@/assets/img/logo_hp.png";
+import logo_kk from "@/assets/img/logo_kk.png";
+import logo_toyota from "@/assets/img/logo_toyota.png";
 
-import img_tel from '@/assets/img/tel.png'
-import img_computer from '@/assets/img/computer.png'
-import img_qq from '@/assets/img/qq.png'
-import img_skill from '@/assets/img/skill.png'
+import img_tel from "@/assets/img/tel.png";
+import img_computer from "@/assets/img/computer.png";
+import img_qq from "@/assets/img/qq.png";
+import img_skill from "@/assets/img/skill.png";
 
 const swiperList = [
   {
     img: banner1,
-    title: '您身边的IT专家1',
-    content: '宣传简介您身边的IT专家1宣传简介您身边的IT专家1'
+    title: "绿能",
+    content: "共建美好未来",
   },
   {
     img: banner2,
-    title: '您身边的IT专家2',
-    content: '宣传简介您身边的IT专家2宣传简介您身边的IT专家2'
+    title: "绿能",
+    content: "共建美好未来",
   },
   {
-    img: banner1,
-    title: '您身边的IT专家3',
-    content: '宣传简介您身边的IT专家3宣传简介您身边的IT专家3'
+    img: banner3,
+    title: "绿能",
+    content: "共建美好未来",
   },
-  {
-    img: banner2,
-    title: '您身边的IT专家4',
-    content: '宣传简介您身边的IT专家4宣传简介您身边的IT专家4'
-  }
-]
+];
 
-const modules = [Navigation, Pagination, Scrollbar, A11y, Lazy, Autoplay]
+const modules = [Navigation, Pagination, Scrollbar, A11y, Lazy, Autoplay];
 
 const customerList = [
   {
     logo: logo_hp,
     title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
     content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
   },
   {
     logo: logo_kk,
     title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
     content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
   },
   {
     logo: logo_toyota,
     title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
     content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
   },
   {
     logo: logo_kk,
     title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
     content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
   },
   {
     logo: logo_hp,
     title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
     content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
   },
   {
     logo: logo_toyota,
     title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
     content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
   },
   {
     logo: logo_kk,
     title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
     content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
   },
   {
     logo: logo_hp,
     title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
     content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
   },
   {
     logo: logo_toyota,
     title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
     content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
   },
   {
     logo: logo_hp,
     title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
     content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
   },
   {
     logo: logo_kk,
     title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
     content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
   },
   {
     logo: logo_hp,
     title:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。',
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
     content:
-      '您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。'
-  }
-]
+      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
+  },
+];
 
 const serverList = [
   {
     logo: img_tel,
-    title: '核心优势1',
-    content: '<p>由专业客服提供人工服务</p>负责疑难问题和故障受理'
+    title: "核心优势1",
+    content: "<p>由专业客服提供人工服务</p>负责疑难问题和故障受理",
   },
   {
     logo: img_computer,
-    title: '核心优势2',
-    content: '<p>利用远程视频工具，提供协助</p>帮助客户进行调试、解决故障'
+    title: "核心优势2",
+    content: "<p>利用远程视频工具，提供协助</p>帮助客户进行调试、解决故障",
   },
   {
     logo: img_qq,
-    title: '核心优势3',
-    content: '<p>利用企业QQ提供在线解答</p>帮助企业快速准确解决问题和故障'
+    title: "核心优势3",
+    content: "<p>利用企业QQ提供在线解答</p>帮助企业快速准确解决问题和故障",
   },
   {
     logo: img_skill,
-    title: '核心优势4',
-    content: '<p>由技术支持工程师，负责问题解答</p>需求受理及故障受理'
-  }
-]
+    title: "核心优势4",
+    content: "<p>由技术支持工程师，负责问题解答</p>需求受理及故障受理",
+  },
+];
 
 // const { proxy } = getCurrentInstance() //获取上下文实例，ctx=vue2的this
 onMounted(() => {
@@ -334,13 +351,13 @@ onMounted(() => {
   // console.log(proxy.$wow, '------')
   /* wowjs动画 */
   new WOW({
-    boxClass: 'wow',
-    animateClass: 'animated',
+    boxClass: "wow",
+    animateClass: "animated",
     offset: 0,
     mobile: true,
-    live: true
-  }).init()
-})
+    live: true,
+  }).init();
+});
 </script>
 
 <style scoped>
@@ -352,7 +369,7 @@ onMounted(() => {
 /* 顶部轮播图 */
 #swiper {
   width: 100%;
-  height: 600px;
+  height: 670px;
 }
 
 #swiper .banner-swiper {
@@ -373,26 +390,33 @@ onMounted(() => {
   z-index: 999999999;
   width: 100%;
   height: 100%;
-  color: #fff;
-  background: rgba(51, 51, 51, 0.534);
   text-align: center;
   line-height: 80px;
 }
 
 #swiper .banner-swiper .swiper-slide-title > h1 {
-  font-size: 50px;
+  font-size: 26px;
   margin-top: 12%;
+  width: 50%;
+  position: relative;
+  left: 23.8%;
+  top: -14px;
+  color: #5dd28d;
 }
 
 #swiper .banner-swiper .swiper-slide-title > p {
-  font-size: 20px;
-  margin-top: 1%;
   font-weight: 700;
+  font-size: 25px;
+  color: #2a82e4;
+  width: 50%;
+  position: relative;
+  left: 32%;
+  top: -36px;
 }
 
 /* 大数据管理系统 */
 #bigData {
-  padding: 100px;
+  padding: 10px;
   transition: all ease 0.6s;
   box-sizing: border-box;
 }
@@ -416,7 +440,7 @@ onMounted(() => {
 #contactUs {
   color: #fff;
   height: 400px;
-  background: url('../assets/img/contact_us_bg.jpg') 0 0 no-repeat;
+  background: url("../assets/img/contact_us_bg.jpg") 0 0 no-repeat;
   background-size: 100% 100%;
   transition: all ease 0.6s;
 }
@@ -439,17 +463,17 @@ onMounted(() => {
 }
 
 #contactUs .contactUs-container .contactUs-contactWay span:nth-of-type(1) {
-  background: url('../assets/img/weixin.png') 0 0 no-repeat;
+  background: url("../assets/img/weixin.png") 0 0 no-repeat;
   background-size: 100% 100%;
 }
 
 #contactUs .contactUs-container .contactUs-contactWay span:nth-of-type(2) {
-  background: url('../assets/img/weibo.png') 0 0 no-repeat;
+  background: url("../assets/img/weibo.png") 0 0 no-repeat;
   background-size: 100% 100%;
 }
 
 #contactUs .contactUs-container .contactUs-contactWay span:nth-of-type(3) {
-  background: url('../assets/img/twitter.png') 0 0 no-repeat;
+  background: url("../assets/img/twitter.png") 0 0 no-repeat;
   background-size: 100% 100%;
 }
 
@@ -694,5 +718,15 @@ onMounted(() => {
     padding: 20px 0;
   }
 }
+.swiper {
+  --swiper-theme-color: #2a82e4;
+  --swiper-pagination-color: #ffffff; /* 两种都可以 */
+}
+.swiper-pagination {
+  --swiper-pagination-bullet-width: 40px;
+  --swiper-pagination-bullet-height: 4px;
+}
+.swiper-pagination >>> .swiper-pagination-bullet {
+  border-radius: 1px;
+}
 </style>
-
