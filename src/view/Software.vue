@@ -73,7 +73,7 @@
               v-for="(itemIP, indexIP) in itemI.pic"
               :key="indexIP"
               :src="itemIP"
-              :width="itemI?.picWid[indexIP] || ' 60%'"
+              :width="itemI?.picWid?.[indexIP] || ' 60%'"
             />
           </div>
           <div v-if="itemI.picgl === 3" class="imgIP3">
