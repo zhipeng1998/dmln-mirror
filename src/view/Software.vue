@@ -10,13 +10,18 @@
     </div>
 
     <div id="proInfo" class="conatiner-fuild">
-      <div v-if="nowType !== 0" @click="nowType = 0" style="text-align: right">
+      <div
+        class="back"
+        v-if="nowType !== 0"
+        @click="nowType = 0"
+        style="text-align: right"
+      >
         返回
       </div>
       <div class="container">
         <div class="proInfo-title text-center">
           <div v-if="nowType === 0">产品与解决方案</div>
-          <div v-else>{{ productList[nowType - 1].name }}</div>
+          <div v-else>{{ productList[nowType - 1]?.name }}</div>
         </div>
       </div>
     </div>
@@ -136,6 +141,7 @@ import { ref, watch } from "vue";
 import WOW from "wow.js";
 import { onMounted } from "vue";
 import banner1 from "@/assets/img/lnjncp.jpg";
+import { useRouter, useRoute } from "vue-router";
 
 import itemICP from "@/assets/img/itemICP.png";
 
@@ -222,6 +228,9 @@ const stopWatch = watch(nowType, (newValue, oldValue) => {
   );
   nowProduct.value = customerList.find((item) => item.type === newValue);
 });
+
+const router = useRouter();
+const route = useRoute();
 
 const productList = [
   { name: "低温脱硝催化剂", pic: product1, type: 1 },
@@ -476,8 +485,12 @@ const customerList = [
 ];
 
 onMounted(() => {
-  // var wow = new WOW()
-  // wow.init()
+  console.log(
+    "router",
+    route.query,
+    customerList.find((item) => item.type === route.query.type)
+  );
+  nowType.value = +route.query.type || 0;
 });
 </script>
 
@@ -612,6 +625,16 @@ onMounted(() => {
 .infoC .characteristicsIP .cIPItem div {
   font-weight: lighter;
   margin: 6px 0 0 10px;
+}
+
+.back {
+  cursor: pointer;
+  position: absolute;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  right: 20px;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 768px) {
