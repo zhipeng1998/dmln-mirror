@@ -7,13 +7,52 @@
     <div class="concat-text">
       <span>联系我们</span>
     </div>
-    <el-row>
-      <el-col :span="12">
-        <div>
-          <img src="@/assets/img/contactus.png" alt="联系我们" />
+    <el-row :gutter="80" style="margin-top: 0px; padding: 50px 40px">
+      <el-col :span="16">
+        <div class="concat-map">
+          <img src="@/assets/img/map.png" alt="联系我们" />
         </div>
       </el-col>
-      <el-col :span="12"></el-col>
+      <el-col :span="8">
+        <div class="concat-right" style="margin-top: 3px">
+          <div>
+            <el-row>
+              <el-col :span="12" class="map-right map-right-left">
+                <img
+                  src="@/assets/img/beijing.png"
+                  alt="联系我们"
+                  class="wow zoomIn"
+                />
+                <span style="font-size: 20px">北京</span>
+              </el-col>
+              <el-col :span="12" class="map-right map-right-right">
+                <p>联系人：某某</p>
+                <p>电话：00000000</p>
+                <p>传真：00000000</p>
+                <p>地址：23423424234</p>
+              </el-col>
+            </el-row>
+          </div>
+          <div>
+            <el-row>
+              <el-col :span="12" class="map-right map-right-left">
+                <img
+                  src="@/assets/img/shanghai.png"
+                  alt="联系我们"
+                  class="wow zoomIn"
+                />
+                <span style="font-size: 20px">上海</span>
+              </el-col>
+              <el-col :span="12" class="map-right map-right-right">
+                <p>联系人：某某</p>
+                <p>电话：00000000</p>
+                <p>传真：00000000</p>
+                <p>地址：23423424234</p>
+              </el-col>
+            </el-row>
+          </div>
+        </div>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -30,7 +69,7 @@ onMounted(() => {
 <style scoped>
 #ConcatUs {
   width: 100%;
-  height: 1000px;
+  height: auto;
 }
 .concat-top {
   width: 100%;
@@ -59,6 +98,57 @@ onMounted(() => {
   color: #fff;
   font-weight: 300;
   margin-left: 40px;
+}
+.concat-map img {
+  width: 100%;
+  height: 100%;
+}
+.concat-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #fff;
+  font-weight: 300;
+}
+.map-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-right-left {
+  justify-content: center;
+  align-items: center;
+}
+.map-right-left span {
+  position: relative;
+  left: -4px;
+}
+.map-right-right {
+  justify-content: center;
+}
+.map-right-left img {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.map-right img {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+.concat-right * {
+  font-weight: 300;
+}
+.concat-right div {
+  width: 100%;
+  height: 13.338vw;
+}
+.concat-right > div:nth-child(1) {
+  background: #38846c;
+}
+.concat-right > div:nth-child(2) {
+  background: #2a82e4;
 }
 @media screen and (max-width: 997px) {
   .CompanyIntroduction-container {

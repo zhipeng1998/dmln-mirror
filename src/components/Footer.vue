@@ -45,7 +45,7 @@
   width: 100%;
   height: 240px;
   color: #fff;
-  background: #474747;
+  background: #38846c;
   overflow: hidden;
   padding: 20px;
 }
