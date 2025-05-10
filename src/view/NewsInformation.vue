@@ -1,197 +1,173 @@
 <template>
-  <div id="NewsInformation">
-    <div class="container">
-      <div class="container text-center">
-        <h3>新闻动态</h3>
-        <p style="color: #b2b2b2">Company News</p>
-      </div>
-      <div class="nav container text-center">
-        <a href="javascript:;" class="active">公司新闻</a>
-        <a href="javascript:;">行业动态</a>
-      </div>
-      <ul class="news-container container-fuild">
-        <li v-for="(item, index) in newsList" :key="index" class="wow fadeIn">
-          <div class="content">
-            <p>{{ item.title }}</p>
-            <p>{{ item.introduce }}</p>
-          </div>
-          <div class="time">
-            <p>{{ item.date }}</p>
-            <span>{{ item.year }}</span>
-          </div>
-          <div class="circle">
-            <img src="@/assets/img/circle.png" />
-            <i class="line center-block"></i>
-          </div>
-        </li>
-      </ul>
-      <div class="contaianer-fuild text-center more">
-        <i class="glyphicon glyphicon-th"></i>
-      </div>
+  <div id="Message">
+    <div class="message-form">
+      <h2>在线留言</h2>
+      <p>
+        欢迎与我们联系，为了能够更好地处理您反馈的信息，请您如实填写表单内容，标注"*"为必填
+      </p>
+      <el-form
+        label-position="top"
+        label-width="auto"
+        :model="formLabelAlign"
+        style="max-width: 600px"
+      >
+        <el-row :gutter="130">
+          <el-col :span="12">
+            <el-form-item :required="true" label="姓名">
+              <el-input v-model="formLabelAlign.name" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :required="true" label="电子邮箱">
+              <el-input v-model="formLabelAlign.email" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :required="true" label="联系电话">
+              <el-input v-model="formLabelAlign.phone" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :required="true" label="国家">
+              <el-input v-model="formLabelAlign.country" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :required="true" label="省份">
+              <el-input v-model="formLabelAlign.provence" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :required="true" label="城市">
+              <el-input v-model="formLabelAlign.city" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :required="true" label="公司">
+              <el-input v-model="formLabelAlign.company" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item :required="true" label="职位">
+              <el-input v-model="formLabelAlign.position" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="12">
+            <el-form-item
+              :required="true"
+              label="产品"
+              :label-position="itemLabelPosition"
+            >
+              <el-input v-model="formLabelAlign.product" />
+            </el-form-item>
+          </el-col>
+          <el-col :span="24">
+            <el-form-item :required="true" label="需求描述">
+              <el-input v-model="formLabelAlign.info" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="1">
+            <el-checkbox></el-checkbox>
+          </el-col>
+          <el-col :span="23">
+            <p class="form-item">
+              我愿意接受东铭绿能为我发送产品、解决方案或服务的相关信息。我知道我可以随时取消订阅。
+            </p>
+          </el-col>
+          <el-col :span="1">
+            <el-checkbox></el-checkbox>
+          </el-col>
+          <el-col :span="23">
+            <p class="form-item">
+              *我理解并同意按照东铭绿能隐私保护条款和使用条款使用和传递我的个人信息。
+            </p>
+          </el-col>
+        </el-row>
+        <el-col :span="12" :offset="8">
+          <el-form-item>
+            <el-button type="danger" style="width: 120px" @click="onSubmit"
+              >提交</el-button
+            >
+          </el-form-item>
+        </el-col>
+      </el-form>
     </div>
   </div>
 </template>
 
 <script setup name="NewsInformation">
-import WOW from 'wow.js'
-import { onMounted } from 'vue'
-const newsList = [
-  {
-    id: '001',
-    title: '世界上第一个程序员',
-    introduce:
-      '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
-    date: '05-24',
-    year: '2019'
-  },
-  {
-    id: '002',
-    title: '世界上第二个程序员',
-    introduce:
-      '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
-    date: '05-24',
-    year: '2019'
-  },
-  {
-    id: '003',
-    title: '世界上第三个程序员',
-    introduce:
-      '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
-    date: '05-24',
-    year: '2019'
-  },
-  {
-    id: '004',
-    title: '世界上第四个程序员',
-    introduce:
-      '为计算程序拟定“算法”，写作的第四份“程序设计流程图”，被珍视为“第一位给计算机',
-    date: '05-24',
-    year: '2019'
-  },
-  {
-    id: '005',
-    title: '世界上第五个程序员',
-    introduce:
-      '为计算程序拟定“算法”，写作的第五份“程序设计流程图”，被珍视为“第一位给计算机',
-    date: '05-24',
-    year: '2019'
-  },
-  {
-    id: '006',
-    title: '世界上第六个程序员',
-    introduce:
-      '为计算程序拟定“算法”，写作的第五份“程序设计流程图”，被珍视为“第一位给计算机',
-    date: '05-24',
-    year: '2019'
-  }
-]
+import { reactive, ref } from "vue";
+
+const labelPosition = ref("right");
+const itemLabelPosition = ref("");
+const formLabelAlign = reactive({
+  name: "",
+  email: "",
+  phone: "",
+  country: "",
+  provence: "",
+  city: "",
+  company: "",
+  position: "",
+  product: "",
+  info: "",
+});
+import WOW from "wow.js";
+import { onMounted } from "vue";
 onMounted(() => {
-  var wow = new WOW()
-  wow.init()
-})
+  var wow = new WOW();
+  wow.init();
+});
 </script>
 
 <style scoped>
-.nav {
-  margin: 20px 0;
+#Message {
+  width: 100%;
+  margin-top: 80px;
+  height: 800px;
+  background-image: url("../assets/img/message.png");
+  background-size: cover;
+  background-position: center;
 }
-.nav > a {
-  display: inline-block;
-  text-decoration: none;
-  width: 120px;
-  height: 45px;
-  line-height: 45px;
-  color: #333;
-  border: 1px solid #333;
+.message-form {
+  width: 45%;
+  max-width: 660px;
+  min-width: 500px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  top: 70px;
+  left: 10%;
+  background: #fff;
+  padding-left: 30px;
 }
-.nav > a.active {
-  color: #1e73be;
-  border-color: #1e73be;
+
+.message-form h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
 }
-.nav > a:hover {
-  color: #1e73be;
-  border-color: #1e73be;
-}
-.news-container {
-  overflow: hidden;
-  margin-bottom: 0;
-}
-.news-container > li {
-  width: 55.6%;
-  height: 120px;
-  float: left;
-  color: #333;
-  text-align: right;
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
-}
-.news-container > li:hover {
-  color: #1e73be;
-  border: 1px solid #1e73be;
-  cursor: pointer;
-}
-.news-container > li:nth-of-type(2n) {
-  float: right;
-  text-align: left;
-}
-.news-container > li > .content {
-  width: 60%;
-  float: left;
-  padding: 20px 0;
-}
-.news-container > li > .time {
-  width: 20%;
-  float: left;
+
+.message-form p {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 300;
   padding: 10px 0;
 }
-.news-container > li > .time > p {
-  font-size: 30px;
-  margin: 5px 0;
+.form-item {
+  font-size: 12px !important;
+  padding: 0 !important;
+  margin: 0;
+  text-align: left !important;
+  line-height: 30px;
 }
-.news-container > li > .circle {
-  width: 20%;
-  height: 100%;
-  float: left;
-  position: relative;
-}
-.news-container > li > .circle > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  width: 20px;
-  height: 20px;
-}
-.news-container > li > .circle > i {
-  display: block;
-  width: 1px;
-  height: 100%;
-  background: #707070;
-}
-.news-container > li:nth-of-type(2n) > .content {
-  float: right;
-}
-.news-container > li:nth-of-type(2n) > .time {
-  float: right;
-}
-.news-container > li:nth-of-type(2n) > .circle {
-  float: right;
-}
-.news-container > li:nth-of-type(1) > .circle > i {
-  height: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-}
-.more {
-  font-size: 25px;
-  color: #707070;
-}
-.more > i {
-  cursor: pointer;
-}
+
 @media screen and (max-width: 767px) {
   .news-container > li {
     width: 100%;
@@ -211,4 +187,3 @@ onMounted(() => {
   }
 }
 </style>
-

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "animate.css": "^4.1.1",
+    "element-plus": "^2.9.10",
     "jquery": "^3.6.1",
     "swiper": "^8.4.5",
     "vue": "^3.2.41",

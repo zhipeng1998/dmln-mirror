@@ -100,6 +100,53 @@
           <img :src="item.img" alt="轮播图" />
         </swiper-slide>
       </swiper>
+      <!-- 新闻与动态 -->
+      <div id="news" class="container-fuild">
+        <div class="aboutus-title">
+          <div class="title-main">
+            <span style="font-weight: 200"> ------------ </span>
+            <span class="title-container"> 新闻与动态 </span>
+            <span style="font-weight: 200"> ------------ </span>
+          </div>
+          <span class="title-pub">News</span>
+        </div>
+      </div>
+      <swiper
+        id="swiper3"
+        :modules="modules1"
+        :slides-per-view="1"
+        :space-between="0"
+        navigation
+        indicator-color="#fff"
+        lazy
+        loop
+        :pagination="{
+          clickable: true,
+          el: '.swiper-pagination3',
+        }"
+      >
+        <swiper-slide
+          class="banner-swiper"
+          v-for="(item, index) in swiperList3"
+          :key="index"
+        >
+          <div class="swiper-slide-content">
+            <div class="swiper-slide-left">
+              <p>{{ item.title }}</p>
+              <p>{{ item.date }}</p>
+              <p>
+                {{ item.content }}
+              </p>
+              <a href="">了解详情 > </a>
+            </div>
+            <div class="swiper-slide-right">
+              <img class="swiper-lazy" :data-src="item.img" alt="轮播图" />
+              <div class="swiper-lazy-preloader"></div>
+            </div>
+          </div>
+        </swiper-slide>
+        <div class="swiper-pagination3"></div>
+      </swiper>
     </div>
   </div>
 </template>
@@ -131,6 +178,9 @@ import banner2 from "@/assets/img/banner2.jpg";
 import banner3 from "@/assets/img/banner3.jpg";
 
 import product1 from "@/assets/img/product-sample.png";
+import news1 from "@/assets/img/news-sample.jpeg";
+import news2 from "@/assets/img/news2.png";
+import news3 from "@/assets/img/news3.png";
 
 import logo_hp from "@/assets/img/logo_hp.png";
 import logo_kk from "@/assets/img/logo_kk.png";
@@ -174,6 +224,30 @@ const swiperList2 = [
     img: product1,
     title: "",
     content: "",
+  },
+];
+
+const swiperList3 = [
+  {
+    img: news1,
+    title: "东铭绿能与戴密谱签订战略合作协议",
+    date: "2025年02月24日",
+    content:
+      "双方将发挥各自优势，助力钢铁企业实现检化验的实时精确无人化采集，减少认为干涉，提升监测效率与准确性，为企业生产决策提供科学依据，实现降本增效...",
+  },
+  {
+    img: news2,
+    title: "三棵树工业涂料战略牵手东铭绿能，这次战略合作有点不一样",
+    date: "2024年10月25日",
+    content:
+      "近日，三棵树工业涂料与东铭绿能签署了战略合作协议。东铭实业集团有限公司董事长、东铭绿能（上海）科技有限公司董事长张仕平，东铭绿能（上海）科技有限公司总经理游君贤，三棵树集团高级副总裁林德殿、工业涂料事业部总经理缪宁代表双方签约。此次签约，标志着双方将在黑色金属冶炼和压延加工行业建立长期稳定的合作关系，携手推动产业的持续发展...",
+  },
+  {
+    img: news3,
+    title: "山西立恒焦化与上海东铭蓝天环保科技战略合作签约",
+    date: "2024年05月20日",
+    content:
+      "山西晋南钢铁集团旗下立恒焦化有限公司与上海东铭蓝天环保科技就技术赋能、设备运维签署战略合作协议，上海东铭蓝天环保科技董事长张仕平、晋南钢铁集团总裁张天福等出席仪式并签约。张天福简要介绍了集团绿色低碳、产业链协同发展及未来发展规划，希望双方共同发挥优势，持续深化合作，围绕产业协同、科技创新、绿色低碳，推动集团环保能力提升，推广环保创A优秀经验...",
   },
 ];
 
@@ -323,6 +397,21 @@ onMounted(() => {
   height: 300px;
 }
 
+#swiper3 {
+  width: 70%;
+  height: 400px;
+  margin-bottom: 50px;
+}
+
+#swiper3 .banner-swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#swiper3 .banner-swiper img {
+  width: 100%;
+}
+
 #swiper2 .banner-swiper {
   width: 100%;
   height: 100%;
@@ -412,6 +501,10 @@ onMounted(() => {
   line-height: 40px;
 }
 
+#news {
+  margin-top: 30px;
+}
+
 .title-container {
   font-size: 18px;
   font-weight: 700;
@@ -434,7 +527,7 @@ onMounted(() => {
 }
 
 .solve-part {
-  padding: 50px 0;
+  padding: 30px 0;
 }
 
 /* 媒体查询（手机） */
@@ -479,6 +572,46 @@ onMounted(() => {
 .swiper {
   --swiper-theme-color: #2a82e4;
   --swiper-pagination-color: #ffffff; /* 两种都可以 */
+}
+.swiper-slide-content {
+  display: flex;
+  justify-content: space-around;
+}
+.swiper-slide-left {
+  width: 50%;
+  padding: 20px 60px 0 80px;
+}
+.swiper-slide-left p {
+  max-height: 205px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.swiper-slide-left * {
+  margin-bottom: 10px;
+}
+.swiper-slide-left p:nth-child(1) {
+  font-size: 24px;
+  font-weight: 310;
+  height: 80px;
+}
+.swiper-slide-left p:nth-child(2) {
+  font-size: 16px;
+  font-weight: 280;
+  height: 40px;
+}
+.swiper-slide-left p:nth-child(3) {
+  font-size: 18px;
+  font-weight: 280;
+}
+.swiper-slide-left a {
+  font-size: 18px;
+  font-weight: 280;
+  color: #2a82e4;
+  position: relative;
+}
+.swiper-slide-right {
+  width: 50%;
+  padding: 20px 60px 0 60px;
 }
 .swiper-pagination {
   --swiper-pagination-bullet-width: 40px;
