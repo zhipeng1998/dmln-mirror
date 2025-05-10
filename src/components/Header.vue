@@ -14,8 +14,7 @@
       <!-- 导航logo -->
       <div class="header-nav-logo">
         <div class="header-logo-container">
-          <img src="@/assets/img/brcc-logo.png" />
-          <span>东铭绿能</span>
+          <img src="@/assets/img/dmln-logo.png" />
         </div>
       </div>
       <!-- 导航内容 -->
@@ -121,6 +120,8 @@ const navList = [
   },
 ];
 function navClick(index, name) {
+  console.log(index);
+  console.log(name);
   navIndex.value = index;
   sessionStorage.setItem("navIndex", index);
   menuName.value = name;
@@ -137,7 +138,7 @@ function menuClick() {
 <style scoped>
 /* 顶部 */
 #header {
-  background: #f4f4f4;
+  background: #fff;
   transition: all ease 0.6s;
   position: fixed; /* 固定在顶部 */
   top: 0;
@@ -195,12 +196,13 @@ function menuClick() {
   height: 100%;
   float: left;
   position: relative;
+  top: 8px;
 }
 
 /* 导航栏logo图片 */
 #header .header-nav .header-nav-logo img {
-  width: 100px;
-  height: 30px;
+  width: 200px;
+  height: 40px;
   margin: auto;
 }
 
