@@ -44,11 +44,7 @@
     <!-- 手机导航 -->
     <div class="header-nav-m container-fuild visible-xs">
       <div class="header-nav-m-logo">
-        <img
-          class="center-block"
-          src="@/assets/img/logo_black.png"
-          alt="logo"
-        />
+        <img class="center-block" src="@/assets/img/dmln-logo.png" alt="logo" />
       </div>
       <!-- 导航栏 -->
       <div class="header-nav-m-menu text-center">
@@ -336,14 +332,14 @@ function menuClick() {
 
   /* 导航栏logo容器 */
   #header .header-nav-m .header-nav-m-logo {
-    height: 80px;
+    height: 50px;
     position: relative;
   }
 
   /* 导航栏logo图片 */
   #header .header-nav-m .header-nav-m-logo img {
-    width: 95px;
-    height: 45px;
+    width: 200px;
+    height: 36px;
     position: absolute;
     top: 0;
     left: 0;
@@ -404,6 +400,12 @@ function menuClick() {
   /* 导航栏 每个导航下面的 a 链接的右侧小三角 */
   #header .header-nav .header-nav-wrapper > li > a > span {
     font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header-welcome {
+    display: none;
   }
 }
 </style>

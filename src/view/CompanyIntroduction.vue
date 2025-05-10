@@ -7,13 +7,13 @@
     <div class="concat-text">
       <span>联系我们</span>
     </div>
-    <el-row :gutter="80" style="margin-top: 0px; padding: 50px 40px">
-      <el-col :span="16">
+    <el-row :gutter="80" class="concat-pub">
+      <el-col :span="windowWidth > 767 ? 16 : 24">
         <div class="concat-map">
           <img src="@/assets/img/map.png" alt="联系我们" />
         </div>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="windowWidth > 767 ? 16 : 24">
         <div class="concat-right" style="margin-top: 3px">
           <div>
             <el-row>
@@ -29,7 +29,7 @@
                 <p>联系人：某某</p>
                 <p>电话：00000000</p>
                 <p>传真：00000000</p>
-                <p>地址：23423424234</p>
+                <p>地址：北京市</p>
               </el-col>
             </el-row>
           </div>
@@ -47,7 +47,7 @@
                 <p>联系人：某某</p>
                 <p>电话：00000000</p>
                 <p>传真：00000000</p>
-                <p>地址：23423424234</p>
+                <p>地址：上海市</p>
               </el-col>
             </el-row>
           </div>
@@ -60,6 +60,10 @@
 <script setup name="CompanyIntroduction">
 import WOW from "wow.js";
 import { onMounted } from "vue";
+import { reactive, ref } from "vue";
+
+const windowWidth = ref(window.innerWidth);
+
 onMounted(() => {
   var wow = new WOW();
   wow.init();
@@ -75,6 +79,10 @@ onMounted(() => {
   width: 100%;
   height: 366px;
   margin-top: 120px;
+}
+.concat-pub {
+  margin-top: 0px;
+  padding: 50px 40px;
 }
 .concat-top p {
   width: 100%;
@@ -154,6 +162,27 @@ onMounted(() => {
   .CompanyIntroduction-container {
     padding: 10px 0;
     color: #808080;
+  }
+}
+@media screen and (max-width: 768px) {
+  .concat-top {
+    width: 100%;
+    height: 116px;
+    margin-top: 100px;
+  }
+  .concat-top p {
+    font-size: 16px;
+    top: 140px;
+  }
+  .concat-text {
+    display: none;
+  }
+  .concat-right {
+    margin-top: 20px !important;
+  }
+  .concat-right div {
+    width: 100%;
+    height: 140px;
   }
 }
 </style>

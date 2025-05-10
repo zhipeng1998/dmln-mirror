@@ -12,47 +12,47 @@
         style="max-width: 600px"
       >
         <el-row :gutter="130">
-          <el-col :span="12">
+          <el-col :span="windowWidth > 767 ? 12 : 24">
             <el-form-item :required="true" label="姓名">
               <el-input v-model="formLabelAlign.name" />
             </el-form-item>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="windowWidth > 767 ? 12 : 24">
             <el-form-item :required="true" label="电子邮箱">
               <el-input v-model="formLabelAlign.email" />
             </el-form-item>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="windowWidth > 767 ? 12 : 24">
             <el-form-item :required="true" label="联系电话">
               <el-input v-model="formLabelAlign.phone" />
             </el-form-item>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="windowWidth > 767 ? 12 : 24">
             <el-form-item label="国家">
               <el-input v-model="formLabelAlign.country" />
             </el-form-item>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="windowWidth > 767 ? 12 : 24">
             <el-form-item label="省份">
               <el-input v-model="formLabelAlign.provence" />
             </el-form-item>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="windowWidth > 767 ? 12 : 24">
             <el-form-item label="城市">
               <el-input v-model="formLabelAlign.city" />
             </el-form-item>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="windowWidth > 767 ? 12 : 24">
             <el-form-item :required="true" label="公司">
               <el-input v-model="formLabelAlign.company" />
             </el-form-item>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="windowWidth > 767 ? 12 : 24">
             <el-form-item label="职位">
               <el-input v-model="formLabelAlign.position" />
             </el-form-item>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="windowWidth > 767 ? 12 : 24">
             <el-form-item
               :required="true"
               label="产品"
@@ -68,18 +68,18 @@
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="1">
+          <el-col :span="windowWidth > 767 ? 1 : 2">
             <el-checkbox></el-checkbox>
           </el-col>
-          <el-col :span="23">
+          <el-col :span="windowWidth > 767 ? 23 : 22">
             <p class="form-item">
               我愿意接受东铭绿能为我发送产品、解决方案或服务的相关信息。我知道我可以随时取消订阅。
             </p>
           </el-col>
-          <el-col :span="1">
+          <el-col :span="windowWidth > 767 ? 1 : 2">
             <el-checkbox></el-checkbox>
           </el-col>
-          <el-col :span="23">
+          <el-col :span="windowWidth > 767 ? 23 : 22">
             <p class="form-item">
               *我理解并同意按照东铭绿能隐私保护条款和使用条款使用和传递我的个人信息。
             </p>
@@ -116,9 +116,13 @@ const formLabelAlign = reactive({
 });
 import WOW from "wow.js";
 import { onMounted } from "vue";
+
+const windowWidth = ref(window.innerWidth);
+
 onMounted(() => {
   var wow = new WOW();
   wow.init();
+  console.log("wow", window.innerWidth);
 });
 </script>
 
@@ -184,6 +188,19 @@ onMounted(() => {
   }
   .news-container > li > .circle {
     display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  #Message {
+    height: 1160px;
+    background-image: none;
+  }
+  .message-form {
+    width: 90%;
+    min-width: 0;
+    left: 5%;
+    top: 40px;
+    padding: 10px;
   }
 }
 </style>
