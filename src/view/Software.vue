@@ -10,7 +10,12 @@
     </div>
 
     <div id="proInfo" class="conatiner-fuild">
-      <div v-if="nowType !== 0" @click="nowType = 0" style="text-align: right">
+      <div
+        class="back"
+        v-if="nowType !== 0"
+        @click="nowType = 0"
+        style="text-align: right"
+      >
         返回
       </div>
       <div class="container">
@@ -620,6 +625,16 @@ onMounted(() => {
 .infoC .characteristicsIP .cIPItem div {
   font-weight: lighter;
   margin: 6px 0 0 10px;
+}
+
+.back {
+  cursor: pointer;
+  position: absolute;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  right: 20px;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 768px) {

@@ -23,7 +23,7 @@
           v-for="(item, index) in navList"
           :key="index"
           :class="index == navIndex ? 'active' : ''"
-          @click="navClick(index, item.name)"
+          @click="navClick(index, item.name, item.path)"
         >
           <router-link :to="item.path">
             {{ item.name }}
@@ -84,6 +84,9 @@
 
 <script setup>
 import { ref, reactive } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 const phone = import.meta.env.VITE_APP_PHONE;
 const email = import.meta.env.VITE_APP_EMAIL;
 const navIndex = ref("");
@@ -119,12 +122,13 @@ const navList = [
     children: [],
   },
 ];
-function navClick(index, name) {
-  console.log(index);
-  console.log(name);
+function navClick(index, name, path) {
   navIndex.value = index;
   sessionStorage.setItem("navIndex", index);
   menuName.value = name;
+  console.log(name);
+  console.log(path);
+  router.push({ path });
 }
 function menuClick() {
   if (menuClass.value == "glyphicon glyphicon-menu-down") {
