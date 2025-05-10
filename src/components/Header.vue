@@ -2,6 +2,14 @@
   <!-- 头部整体盒子 -->
   <div id="header" class="container-fuild">
     <!-- 电脑导航 -->
+    <div class="header-welcome">
+      <div>您好！欢迎来到上海东铭绿能环保科技网站！您身边的绿色能源专家！</div>
+      <div class="header-welcome-right">
+        <span>设为首页</span>
+        <div>｜</div>
+        <span>收藏</span>
+      </div>
+    </div>
     <div class="header-nav container hidden-xs">
       <!-- 导航logo -->
       <div class="header-nav-logo">
@@ -129,7 +137,7 @@ function menuClick() {
 <style scoped>
 /* 顶部 */
 #header {
-  background: #c7e2f5;
+  background: #f4f4f4;
   transition: all ease 0.6s;
   position: fixed; /* 固定在顶部 */
   top: 0;
@@ -144,6 +152,31 @@ function menuClick() {
   font-size: 12px;
   line-height: 50px;
   background: #474747;
+}
+.header-welcome {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  padding: 0 10px;
+  background: #38846c;
+  justify-content: space-between;
+  color: #fff;
+  line-height: 40px;
+}
+.header-welcome-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-welcome-right span {
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+.header-welcome-right span:hover {
+  color: #7faed8;
+}
+.header-welcome-right div {
+  cursor: default;
 }
 
 /* 顶部的图标 */
