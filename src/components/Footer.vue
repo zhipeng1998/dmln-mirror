@@ -152,4 +152,31 @@
   top: 10px;
   text-align: center;
 }
+
+@media screen and (max-width: 768px) {
+  #footer {
+    height: 460px !important;
+  }
+  .footer-right img {
+    top: 20px !important;
+    left: 34% !important;
+  }
+  .footer-right span {
+    top: 26px !important;
+    left: 34% !important;
+  }
+  .image-container {
+    margin-left: 12%;
+  }
+  .company-info {
+    margin-left: 12%;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 0 !important;
+    height: 50px;
+    padding: 20px 0 0 0 !important;
+  }
+}
 </style>
