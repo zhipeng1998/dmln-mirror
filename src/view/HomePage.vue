@@ -3,7 +3,7 @@
     <!-- 轮播图 -->
     <swiper
       id="swiper"
-      :modules="modules"
+      :modules="modules1"
       :slides-per-view="1"
       :space-between="0"
       navigation
@@ -33,151 +33,73 @@
 
     <!-- 关于我们 -->
     <div id="bigData" class="container-fuild">
-      <div>
-        <h1 class="text-center">关于我们</h1>
-        <h3 class="text-center">ABOUT US</h3>
+      <div class="aboutus-title">
+        <div class="title-main">
+          <span style="font-weight: 200"> ------------ </span>
+          <span class="title-container"> 关于我们 </span>
+          <span style="font-weight: 200"> ------------ </span>
+        </div>
+        <span class="title-pub">About US</span>
       </div>
       <div class="row bigData-container">
-        <div class="col-xs-12 col-sm-12 col-md-4 wow zoomIn">
+        <div class="col-xs-12 col-sm-12 col-md-3 wow zoomIn">
           <img
             class="img-responsive"
             src="@/assets/img/Aboutus-L.png"
             alt="东铭绿能"
           />
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-4">
-          <h2 class="bigData-title">
-            大数据管理系统
-            <small>/ Big Data Management System</small>
-          </h2>
+        <div class="col-xs-12 col-sm-12 col-md-6 aboutus-info">
           <p>
-            当今最领先的响应式自助建站平台。无论您是普通互联网用户，还是专业网站制作人员，都能使用起飞页设计出最具专业水准的网站。想创建一个简单的单页式站点，还是一个专业的公司网站，亦或是一个别具一格的博客？起飞页可以满足您的所有需求。
+            东铭绿能（上海）科技有限公司隶属于东铭实业集团，专注于新能源、新材料、新技术的研发与推广，以及碳资产管理等高新技术应用领域。针对行业高质量发展的需求，东铭绿能整合优势资源，为钢铁冶金及相关行业提供全方位的提质增效与节能降本解决方案，助力企业绿色转型。公司已与多家钢铁、煤焦企业及领先技术服务提供商建立了战略合作关系。
           </p>
-          <p>
-            我们的流线式网页布局设计方案和可视化图文内容编辑模式让网站制作和维护成为一件轻松惬意的事。无论您是普通互联网用户，还是专业网站制作人员。
-          </p>
-          <h2 class="bigData-device">PC/PAD/Phone &nbsp; 全设备支持</h2>
-          <a href="javascript:;" class="btn btn-lg btn-block btn-info"
-            >联系我们</a
-          >
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-4 wow zoomIn">
+        <div class="col-xs-12 col-sm-12 col-md-3 wow zoomIn aboutus-r">
           <img
             class="img-responsive"
-            src="@/assets/img/img1.png"
+            src="@/assets/img/aboutus-R.png"
             alt="东铭绿能"
           />
         </div>
       </div>
     </div>
 
-    <!-- 您身边的IT专家 -->
-    <div id="contactUs" class="container-fuild text-center">
-      <div class="container contactUs-container wow slideInUp">
-        <h1>您身边的IT专家</h1>
-        <h3>7x24小时提供出色的IT服务</h3>
-        <button
-          class="btn btn-default btn-sm"
-          onmouseleave="this.style.borderColor='#ffffff'; this.style.backgroundColor='#ffffff'; this.style.color='#3f3f3f';"
-          onmouseenter="this.style.backgroundColor='transparent'; this.style.borderColor='#ffffff'; this.style.color='#ffffff';"
+    <!-- 产品解决方案 -->
+    <div class="solve-part container-fuild">
+      <div class="aboutus-title">
+        <div class="title-main">
+          <span style="font-weight: 200"> ------------ </span>
+          <span class="title-container"> 产品与解决方案 </span>
+          <span style="font-weight: 200"> ------------ </span>
+        </div>
+        <span class="title-pub">Product & Solution</span>
+      </div>
+      <swiper
+        id="swiper2"
+        :centered-slides="true"
+        :initial-slide="1"
+        :modules="modules2"
+        :effect="'coverflow'"
+        :grab-cursor="true"
+        :slides-per-view="1.8"
+        :coverflow-effect="{
+          rotate: 0,
+          stretch: -50,
+          depth: 300,
+          modifier: 1,
+          slideShadows: false,
+        }"
+        :pagination="true"
+        class="mySwiper"
+      >
+        <swiper-slide
+          class="banner-swiper"
+          v-for="(item, index) in swiperList2"
+          :key="index"
         >
-          联系我们
-        </button>
-        <div class="contactUs-contactWay">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 客户评价 -->
-    <div id="customer" class="container-fuild">
-      <div class="container customer-container">
-        <p class="customer-title text-center">客户评价</p>
-        <swiper
-          class="swiper-container customer-swiper hidden-xs"
-          :modules="modules"
-          :slides-per-view="1"
-          :space-between="0"
-          navigation
-          loop
-          autoplay
-          :pagination="{
-            clickable: true,
-          }"
-        >
-          <swiper-slide
-            class="swiper-slide customer-block"
-            v-for="(item, index) in customerList"
-            :key="index"
-          >
-            <div class="customer-logo">
-              <img class="center-block" :src="item.logo" alt="logo" />
-            </div>
-            <div class="customer-yh">
-              <img src="@/assets/img/yinhao.png" alt="引号" />
-            </div>
-            <div class="customer-content1">
-              <small>{{ item.content }}</small>
-            </div>
-            <div class="customer-content2">{{ item.title }}</div>
-          </swiper-slide>
-        </swiper>
-
-        <div class="row visible-xs customer-block">
-          <div
-            class="col-xs-12"
-            v-for="(item, index) in customerList"
-            :key="index"
-          >
-            <div class="customer-logo">
-              <img class="center-block" :src="item.logo" alt="logo" />
-            </div>
-            <div class="customer-yh">
-              <img src="@/assets/img/yinhao.png" alt="引号" />
-            </div>
-            <div class="customer-content1">
-              <small>{{ item.content }}</small>
-            </div>
-            <div class="customer-content2">
-              <small>{{ item.title }}</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 为什么选择我们 -->
-    <div id="whyChooseUs" class="conatiner-fuild">
-      <div class="container">
-        <div class="whyChooseUs-title text-center">
-          <p>为什么选择我们的服务</p>
-          <p>THE REASON TO CHOOSING US</p>
-        </div>
-        <div class="row">
-          <div
-            class="col-xs-12 col-sm-6 col-md-3 server-wrapper"
-            v-for="(item, index) in serverList"
-            :key="index"
-          >
-            <div
-              class="server-block wow slideInUp"
-              onmouseenter="this.style.color='#28f';this.style.borderColor='#28f'"
-              onmouseleave="this.style.color='#666';this.style.borderColor='#ccc'"
-            >
-              <img class="center-block" :src="item.logo" alt="logo" />
-              <p class="text-center">{{ item.title }}</p>
-              <div
-                class="text-center"
-                v-html="item.content"
-                onmouseenter="this.style.color='#28f'"
-                onmouseleave="this.style.color='#ccc'"
-              ></div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <img :src="item.img" alt="轮播图" />
+        </swiper-slide>
+      </swiper>
     </div>
   </div>
 </template>
@@ -193,6 +115,7 @@ import {
   A11y,
   Lazy,
   Autoplay,
+  EffectCoverflow,
 } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
@@ -201,10 +124,13 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/lazy";
 import "swiper/css/autoplay";
+import "swiper/css/effect-coverflow";
 
 import banner1 from "@/assets/img/banner1.jpeg";
 import banner2 from "@/assets/img/banner2.jpg";
 import banner3 from "@/assets/img/banner3.jpg";
+
+import product1 from "@/assets/img/product-sample.png";
 
 import logo_hp from "@/assets/img/logo_hp.png";
 import logo_kk from "@/assets/img/logo_kk.png";
@@ -233,7 +159,26 @@ const swiperList = [
   },
 ];
 
-const modules = [Navigation, Pagination, Scrollbar, A11y, Lazy, Autoplay];
+const swiperList2 = [
+  {
+    img: product1,
+    title: "",
+    content: "",
+  },
+  {
+    img: product1,
+    title: "",
+    content: "",
+  },
+  {
+    img: product1,
+    title: "",
+    content: "",
+  },
+];
+
+const modules1 = [Navigation, Pagination, Scrollbar, A11y, Lazy, Autoplay];
+const modules2 = [EffectCoverflow, Pagination];
 
 const customerList = [
   {
@@ -372,10 +317,31 @@ onMounted(() => {
   height: 670px;
 }
 
+/* 产品轮播图 */
+#swiper2 {
+  width: 70%;
+  height: 300px;
+}
+
+#swiper2 .banner-swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+#swiper2 .banner-swiper img {
+  width: 100%;
+  height: 100%;
+}
+
 #swiper .banner-swiper {
   width: 100%;
   height: 100%;
   position: relative;
+}
+
+#swiper2 img {
+  width: 100%;
+  height: 100%;
 }
 
 #swiper .banner-swiper img {
@@ -420,138 +386,55 @@ onMounted(() => {
   transition: all ease 0.6s;
   box-sizing: border-box;
 }
-
-#bigData .bigData-title {
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ccc;
+#bigData .aboutus-r {
+  text-align: center;
+}
+#bigData .aboutus-r img {
+  width: 60%;
+  height: 60%;
+  margin-left: 25%;
+  margin-top: 33px;
 }
 
-#bigData p {
+.aboutus-title {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.aboutus-info {
+  padding-top: 28px;
+  padding-left: 40px;
+  padding-right: 0;
   font-size: 14px;
-  color: #333;
-  line-height: 2rem;
+  font-weight: 20;
+  color: #808080;
+  line-height: 40px;
+}
+
+.title-container {
+  font-size: 18px;
+  font-weight: 700;
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #505050;
+}
+
+.title-pub {
+  font-size: 12px;
+  color: #505050;
+  font-weight: 200;
+  display: inline-block;
+  padding-top: 16px;
 }
 
 #bigData .bigData-device {
   margin: 50px 0 20px;
 }
 
-/* 您身边的IT专家 */
-#contactUs {
-  color: #fff;
-  height: 400px;
-  background: url("../assets/img/contact_us_bg.jpg") 0 0 no-repeat;
-  background-size: 100% 100%;
-  transition: all ease 0.6s;
-}
-
-#contactUs .contactUs-container {
-  padding-top: 50px;
-}
-
-#contactUs .contactUs-container button {
-  width: 300px;
-  height: 50px;
-  margin-top: 40px;
-}
-
-#contactUs .contactUs-container .contactUs-contactWay span {
-  display: inline-block;
-  width: 48px;
-  height: 48px;
-  margin: 30px;
-}
-
-#contactUs .contactUs-container .contactUs-contactWay span:nth-of-type(1) {
-  background: url("../assets/img/weixin.png") 0 0 no-repeat;
-  background-size: 100% 100%;
-}
-
-#contactUs .contactUs-container .contactUs-contactWay span:nth-of-type(2) {
-  background: url("../assets/img/weibo.png") 0 0 no-repeat;
-  background-size: 100% 100%;
-}
-
-#contactUs .contactUs-container .contactUs-contactWay span:nth-of-type(3) {
-  background: url("../assets/img/twitter.png") 0 0 no-repeat;
-  background-size: 100% 100%;
-}
-
-/* 客户评价 */
-#customer {
+.solve-part {
   padding: 50px 0;
-  box-sizing: border-box;
-  background: #efefef;
-  transition: all ease 0.6s;
-}
-
-#customer .customer-title {
-  font-size: 30px;
-  color: rgb(102, 102, 102);
-  margin: 0 0 30px;
-}
-
-#customer .customer-block {
-  background: #fff;
-  padding: 30px 80px;
-}
-
-#customer .customer-logo img {
-  width: 94px;
-  height: 94px;
-  border: 1px solid #ccc;
-}
-
-#customer .customer-yh img {
-  width: 34px;
-  height: 34px;
-}
-
-#customer .customer-content1 {
-  padding-bottom: 20px;
-  border-bottom: 1px solid #0ce9f1;
-}
-
-#customer .customer-content2 {
-  padding-top: 20px;
-}
-
-/* 为什么选择我们 */
-#whyChooseUs {
-  padding: 100px;
-}
-
-#whyChooseUs .whyChooseUs-title {
-  margin-bottom: 50px;
-}
-
-#whyChooseUs .whyChooseUs-title p:nth-of-type(1) {
-  font-size: 25px;
-  font-weight: 500;
-}
-
-#whyChooseUs .whyChooseUs-title p:nth-of-type(2) {
-  font-size: 14px;
-}
-
-#whyChooseUs .server-block {
-  padding: 50px 20px;
-  border: 1px solid #ccc;
-  border-bottom: 5px solid #ccc;
-}
-
-#whyChooseUs .server-block img {
-  width: 48px;
-  height: 48px;
-}
-
-#whyChooseUs .server-block > p {
-  font-size: 20px;
-  margin: 30px 0;
-}
-
-#whyChooseUs .server-block > div {
-  color: #ccc;
 }
 
 /* 媒体查询（手机） */
@@ -572,94 +455,6 @@ onMounted(() => {
     font-size: 20px;
     margin: 10px 0 10px;
   }
-
-  #contactUs {
-    height: 200px;
-    transition: all ease 0.6s;
-  }
-
-  #contactUs .contactUs-container {
-    padding-top: 0;
-  }
-
-  #contactUs .contactUs-container h1 {
-    font-size: 25px;
-  }
-
-  #contactUs .contactUs-container h3 {
-    font-size: 18px;
-  }
-
-  #contactUs .contactUs-container button {
-    width: 200px;
-    height: 30px;
-    margin-top: 20px;
-  }
-
-  #contactUs .contactUs-container .contactUs-contactWay span {
-    display: inline-block;
-    width: 28px;
-    height: 28px;
-    margin: 10px;
-  }
-
-  #customer {
-    padding: 30px 0;
-    box-sizing: border-box;
-    background: #fff;
-  }
-
-  #customer .customer-title {
-    font-size: 16px;
-    font-weight: bold;
-  }
-
-  #customer .customer-logo img {
-    width: 48px;
-    height: 48px;
-  }
-
-  #customer .customer-block {
-    padding: 30px;
-  }
-
-  #customer .customer-block > div {
-    padding: 30px 0;
-  }
-
-  #whyChooseUs {
-    padding: 20px 0;
-    transition: all ease 0.6s;
-  }
-
-  #whyChooseUs .whyChooseUs-title p:nth-of-type(1) {
-    font-size: 20px;
-    font-weight: 700;
-  }
-
-  #whyChooseUs .whyChooseUs-title p:nth-of-type(2) {
-    font-size: 12px;
-  }
-
-  #whyChooseUs .server-block {
-    padding: 50px 0;
-    border: 1px solid #ccc;
-    border-bottom: 5px solid #ccc;
-  }
-
-  #whyChooseUs .server-block img {
-    width: 48px;
-    height: 48px;
-  }
-
-  #whyChooseUs .server-block > p {
-    font-size: 20px;
-    margin: 30px 0;
-  }
-
-  #whyChooseUs .server-block > div {
-    color: #ccc;
-  }
 }
 
 /* 媒体查询（平板） */
@@ -679,43 +474,6 @@ onMounted(() => {
   #bigData .bigData-device {
     font-size: 30px;
     margin: 30px 0 15px;
-  }
-
-  #contactUs {
-    height: 300px;
-  }
-
-  #contactUs .contactUs-container {
-    padding-top: 50px;
-  }
-
-  #contactUs .contactUs-container h1 {
-    font-size: 30px;
-  }
-
-  #contactUs .contactUs-container h3 {
-    font-size: 20px;
-  }
-
-  #contactUs .contactUs-container button {
-    width: 300px;
-    height: 50px;
-    margin-top: 30px;
-  }
-
-  #contactUs .contactUs-container .contactUs-contactWay span {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    margin: 15px;
-  }
-
-  #customer .customer-title {
-    font-size: 24px;
-  }
-
-  #whyChooseUs {
-    padding: 20px 0;
   }
 }
 .swiper {
