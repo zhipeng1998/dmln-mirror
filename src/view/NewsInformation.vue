@@ -28,17 +28,17 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item :required="true" label="国家">
+            <el-form-item label="国家">
               <el-input v-model="formLabelAlign.country" />
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item :required="true" label="省份">
+            <el-form-item label="省份">
               <el-input v-model="formLabelAlign.provence" />
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item :required="true" label="城市">
+            <el-form-item label="城市">
               <el-input v-model="formLabelAlign.city" />
             </el-form-item>
           </el-col>
@@ -48,7 +48,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item :required="true" label="职位">
+            <el-form-item label="职位">
               <el-input v-model="formLabelAlign.position" />
             </el-form-item>
           </el-col>

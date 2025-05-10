@@ -82,12 +82,14 @@
         :effect="'coverflow'"
         :grab-cursor="true"
         :slides-per-view="1.8"
+        autoplay
+        loop
         :coverflow-effect="{
           rotate: 0,
           stretch: -50,
           depth: 800,
           modifier: 1,
-          slideShadows: false,
+          slideShadows: true,
         }"
         :pagination="true"
         class="mySwiper"
@@ -254,7 +256,7 @@ const swiperList3 = [
 ];
 
 const modules1 = [Navigation, Pagination, Scrollbar, A11y, Lazy, Autoplay];
-const modules2 = [EffectCoverflow, Pagination];
+const modules2 = [EffectCoverflow, Pagination, Autoplay];
 
 const customerList = [
   {
@@ -396,7 +398,7 @@ onMounted(() => {
 /* 产品轮播图 */
 #swiper2 {
   width: 70%;
-  height: 300px;
+  height: 400px;
 }
 
 #swiper3 {
@@ -494,13 +496,17 @@ onMounted(() => {
 }
 
 .aboutus-info {
-  padding-top: 28px;
+  padding-top: 20px;
   padding-left: 40px;
   padding-right: 0;
-  font-size: 14px;
-  font-weight: 20;
+  font-size: 18px;
+
   color: #808080;
   line-height: 40px;
+}
+
+.aboutus-info p {
+  font-weight: 200;
 }
 
 #news {
