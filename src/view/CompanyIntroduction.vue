@@ -13,7 +13,7 @@
           <img src="@/assets/img/map.png" alt="联系我们" />
         </div>
       </el-col>
-      <el-col :span="windowWidth > 767 ? 16 : 24">
+      <el-col :span="windowWidth > 767 ? 8 : 24">
         <div class="concat-right" style="margin-top: 3px">
           <div>
             <el-row>
