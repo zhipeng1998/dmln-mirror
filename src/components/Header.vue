@@ -103,11 +103,11 @@ const navList = [
     path: "/software",
     children: [],
   },
-  {
-    name: "新闻与动态",
-    path: "/service",
-    children: [],
-  },
+  // {
+  //   name: "新闻与动态",
+  //   path: "/service",
+  //   children: [],
+  // },
   {
     name: "在线留言",
     path: "/newsinformation",

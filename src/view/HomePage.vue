@@ -99,7 +99,7 @@
           v-for="(item, index) in swiperList2"
           :key="index"
         >
-          <img :src="item.img" alt="轮播图" />
+          <img :src="item.img" alt="轮播图" @click="gotoPage(item)" />
         </swiper-slide>
       </swiper>
       <!-- 新闻与动态 -->
@@ -156,6 +156,7 @@
 <script setup name="HomePage">
 import WOW from "wow.js";
 import { getCurrentInstance, onMounted } from "vue";
+import { useRouter } from "vue-router";
 // import Swiper from 'swiper'
 import {
   Navigation,
@@ -217,17 +218,17 @@ const swiperList2 = [
   {
     img: product2,
     title: "",
-    content: "",
+    content: "3",
   },
   {
     img: product1,
     title: "",
-    content: "",
+    content: "0",
   },
   {
     img: product3,
     title: "",
-    content: "",
+    content: "6",
   },
 ];
 
@@ -368,10 +369,19 @@ const serverList = [
   },
 ];
 
+const router = useRouter();
+
+function gotoPage(item) {
+  // navIndex.value = index;
+  // sessionStorage.setItem("navIndex", index);
+  // menuName.value = name;
+  const { content } = item;
+
+  router.push({ path: "/software", query: { type: Number(content) } });
+}
+
 // const { proxy } = getCurrentInstance() //获取上下文实例，ctx=vue2的this
 onMounted(() => {
-  // console.log('mounted', proxy)
-  // console.log(proxy.$wow, '------')
   /* wowjs动画 */
   new WOW({
     boxClass: "wow",
