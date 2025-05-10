@@ -85,7 +85,7 @@
         :coverflow-effect="{
           rotate: 0,
           stretch: -50,
-          depth: 300,
+          depth: 800,
           modifier: 1,
           slideShadows: false,
         }"
@@ -177,7 +177,9 @@ import banner1 from "@/assets/img/banner1.jpeg";
 import banner2 from "@/assets/img/banner2.jpg";
 import banner3 from "@/assets/img/banner3.jpg";
 
-import product1 from "@/assets/img/product-sample.png";
+import product1 from "@/assets/img/zhihuijiance.png";
+import product2 from "@/assets/img/gaoyabeng.png";
+import product3 from "@/assets/img/ceshuiyi.png";
 import news1 from "@/assets/img/news-sample.jpeg";
 import news2 from "@/assets/img/news2.png";
 import news3 from "@/assets/img/news3.png";
@@ -211,7 +213,7 @@ const swiperList = [
 
 const swiperList2 = [
   {
-    img: product1,
+    img: product2,
     title: "",
     content: "",
   },
@@ -221,7 +223,7 @@ const swiperList2 = [
     content: "",
   },
   {
-    img: product1,
+    img: product3,
     title: "",
     content: "",
   },
