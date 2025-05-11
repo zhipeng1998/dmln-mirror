@@ -638,8 +638,147 @@ onMounted(() => {
 }
 
 @media screen and (max-width: 768px) {
-  #right {
-    padding: 15px;
+  .product {
+    margin-top: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .banner-container {
+    position: relative;
+    text-align: center;
+    transition: all ease 0.6s;
+  }
+
+  .banner-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; /* 根据需要调整颜色 */
+    z-index: 1;
+    font-size: 14px;
+  }
+
+  .parent {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 20px;
+    padding-top: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+  .parent .border {
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+  }
+  /* height: 0;
+  padding-top: 100%; 
+  position: relative;  */
+
+  .parent .name {
+    color: #38846c;
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  #proInfo {
+    width: 100%;
+    padding: 20px;
+    background: #38846c;
+  }
+
+  #proInfo .proInfo-title div {
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .pContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .pContent p {
+    width: 80%;
+    padding-top: 20px;
+    font-size: 16px;
+  }
+  .infoC {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .titleIP {
+    width: 70%;
+    font-size: 16px;
+    color: #2a82e4;
+    font-weight: bold;
+    padding: 20px 0;
+  }
+  .infoC .imgIP3 {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+  .infoC .imgIP1 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+  .infoC .imgIP6 {
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .infoC .characteristicsIP {
+    width: 70%;
+  }
+  .infoC .characteristicsIP .cIPItem {
+    display: flex;
+    padding: 10px 0;
+  }
+  .infoC .characteristicsIP .cIPItem div {
+    font-weight: lighter;
+    margin: 6px 0 0 10px;
+  }
+
+  .back {
+    cursor: pointer;
+    position: absolute;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    right: 20px;
+    margin-top: 10px;
   }
 }
 </style>
