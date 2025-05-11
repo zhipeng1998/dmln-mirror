@@ -35,9 +35,9 @@
     <div id="bigData" class="container-fuild">
       <div class="aboutus-title">
         <div class="title-main">
-          <span style="font-weight: 200"> ------------ </span>
+          <span style="font-weight: 200"> --------- </span>
           <span class="title-container"> 关于我们 </span>
-          <span style="font-weight: 200"> ------------ </span>
+          <span style="font-weight: 200"> --------- </span>
         </div>
         <span class="title-pub">About US</span>
       </div>
@@ -68,9 +68,9 @@
     <div class="solve-part container-fuild">
       <div class="aboutus-title">
         <div class="title-main">
-          <span style="font-weight: 200"> ------------ </span>
+          <span style="font-weight: 200"> --------- </span>
           <span class="title-container"> 产品与解决方案 </span>
-          <span style="font-weight: 200"> ------------ </span>
+          <span style="font-weight: 200"> --------- </span>
         </div>
         <span class="title-pub">Product & Solution</span>
       </div>
@@ -106,9 +106,9 @@
       <div id="news" class="container-fuild">
         <div class="aboutus-title">
           <div class="title-main">
-            <span style="font-weight: 200"> ------------ </span>
+            <span style="font-weight: 200"> --------- </span>
             <span class="title-container"> 新闻与动态 </span>
-            <span style="font-weight: 200"> ------------ </span>
+            <span style="font-weight: 200"> --------- </span>
           </div>
           <span class="title-pub">News</span>
         </div>
