@@ -63,7 +63,7 @@
             v-for="(item, index) in navList"
             :key="index"
             :class="index == navIndex ? 'active' : ''"
-            @click="navClick(index, item.name)"
+            @click="navClick(index, item.name, item.path)"
             data-toggle="collapse"
             data-target="#menu"
           >

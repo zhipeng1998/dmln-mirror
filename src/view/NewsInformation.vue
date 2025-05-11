@@ -122,7 +122,6 @@ const windowWidth = ref(window.innerWidth);
 onMounted(() => {
   var wow = new WOW();
   wow.init();
-  console.log("wow", window.innerWidth);
 });
 </script>
 
@@ -192,7 +191,7 @@ onMounted(() => {
 }
 @media screen and (max-width: 768px) {
   #Message {
-    height: 1160px;
+    height: 1300px;
     background-image: none;
   }
   .message-form {

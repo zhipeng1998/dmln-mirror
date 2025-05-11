@@ -662,6 +662,10 @@ onMounted(() => {
     font-size: 14px;
     padding-left: 14px;
   }
+  .aboutus-info p {
+    font-weight: 200;
+    color: #000000;
+  }
   .aboutus-r img {
     width: 100% !important;
     height: 100% !important;
