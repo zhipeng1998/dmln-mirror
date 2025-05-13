@@ -31,6 +31,15 @@ const routes = [
         },
       },
       {
+        path: "/smartTown",
+        name: "SmartTown",
+        component: () => import("@/view/Software_smartTown.vue"),
+
+        meta: {
+          title: "SmartTown",
+        },
+      },
+      {
         path: "/software",
         name: "software",
         component: () => import("@/view/Software.vue"),

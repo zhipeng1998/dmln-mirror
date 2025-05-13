@@ -150,6 +150,18 @@
         <div class="swiper-pagination3"></div>
       </swiper>
     </div>
+
+    <div id="news" class="container-fuild">
+      <div class="aboutus-title">
+        <div class="title-main">
+          <span style="font-weight: 200"> --------- </span>
+          <span class="title-container"> 合作伙伴 </span>
+          <span style="font-weight: 200"> --------- </span>
+        </div>
+        <span class="title-pub">OUR PARTNERS</span>
+      </div>
+    </div>
+    <Scroll />
   </div>
 </template>
 
@@ -175,6 +187,8 @@ import "swiper/css/scrollbar";
 import "swiper/css/lazy";
 import "swiper/css/autoplay";
 import "swiper/css/effect-coverflow";
+
+import Scroll from "./Scroll.vue";
 
 import banner1 from "@/assets/img/banner1.jpeg";
 import banner2 from "@/assets/img/banner2.jpg";
