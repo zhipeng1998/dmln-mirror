@@ -30,15 +30,7 @@ const routes = [
           title: "首页",
         },
       },
-      {
-        path: "/smartTown",
-        name: "SmartTown",
-        component: () => import("@/view/Software_smartTown.vue"),
-
-        meta: {
-          title: "SmartTown",
-        },
-      },
+     
       {
         path: "/software",
         name: "software",
