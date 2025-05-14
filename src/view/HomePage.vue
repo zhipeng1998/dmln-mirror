@@ -45,13 +45,16 @@
         <div class="col-xs-12 col-sm-12 col-md-3 wow zoomIn">
           <img
             class="img-responsive"
-            src="@/assets/img/Aboutus-L.png"
+            src="@/assets/img/aboutus-L1.png"
             alt="东铭绿能"
           />
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 aboutus-info">
           <p>
-            东铭绿能（上海）科技有限公司隶属于东铭实业集团，专注于新能源、新材料、新技术的研发与推广，以及碳资产管理等高新技术应用领域。针对行业高质量发展的需求，东铭绿能整合优势资源，为钢铁冶金及相关行业提供全方位的提质增效与节能降本解决方案，助力企业绿色转型。公司已与多家钢铁、煤焦企业及领先技术服务提供商建立了战略合作关系。
+            东铭绿能（上海）科技有限公司，专注于新材料、新技术及新应用的合作与推广，并为行业客户提供碳资产管理等
+            相关的咨询与服务。
+            目前，公司已拥有多项“专精特新”的产品与技术，为行业客户提供提质增效、节能降本、减碳降污的解决方案，助
+            力企业绿色低碳发展。
           </p>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-3 wow zoomIn aboutus-r">
@@ -103,7 +106,7 @@
         </swiper-slide>
       </swiper>
       <!-- 新闻与动态 -->
-      <div id="news" class="container-fuild">
+      <!-- <div id="news" class="container-fuild">
         <div class="aboutus-title">
           <div class="title-main">
             <span style="font-weight: 200"> --------- </span>
@@ -148,7 +151,55 @@
           </div>
         </swiper-slide>
         <div class="swiper-pagination3"></div>
-      </swiper>
+      </swiper> -->
+      <!-- 选择我们的理由 -->
+      <div id="reason" class="container-fuild">
+        <div class="aboutus-title">
+          <div class="title-main">
+            <span style="font-weight: 200"> --------- </span>
+            <span class="title-container"> 选择我们的理由 </span>
+            <span style="font-weight: 200"> --------- </span>
+          </div>
+          <span class="title-pub">OUR STRENGTHS</span>
+        </div>
+      </div>
+      <div class="reason-content">
+        <el-row gutter="2">
+          <el-col
+            v-for="(item, index) in reasonList"
+            :key="index"
+            :span="windowWidth > 767 ? 12 : 24"
+            class="wow fadeInUp"
+          >
+            <el-row gutter="2" class="reason-content-first">
+              <el-col :span="windowWidth > 767 ? 12 : 24">
+                <img :src="item[0].url" alt="" />
+              </el-col>
+              <el-col
+                :span="windowWidth > 767 ? 12 : 24"
+                class="reason-content-right"
+              >
+                <h3>{{ item[0].title }}</h3>
+                <div></div>
+                <p>{{ item[0].content }}</p>
+              </el-col>
+            </el-row>
+            <el-row gutter="2" class="reason-content-first">
+              <el-col
+                :span="windowWidth > 767 ? 12 : 24"
+                class="reason-content-right"
+              >
+                <h3>{{ item[1].title }}</h3>
+                <div></div>
+                <p>{{ item[1].content }}</p>
+              </el-col>
+              <el-col :span="windowWidth > 767 ? 12 : 24">
+                <img :src="item[1].url" alt="" />
+              </el-col>
+            </el-row>
+          </el-col>
+        </el-row>
+      </div>
     </div>
 
     <div id="news" class="container-fuild">
@@ -187,12 +238,18 @@ import "swiper/css/scrollbar";
 import "swiper/css/lazy";
 import "swiper/css/autoplay";
 import "swiper/css/effect-coverflow";
+import { reactive, ref } from "vue";
 
 import Scroll from "./Scroll.vue";
 
 import banner1 from "@/assets/img/banner1.jpeg";
 import banner2 from "@/assets/img/banner2.jpg";
 import banner3 from "@/assets/img/banner3.jpg";
+
+import reason1 from "@/assets/img/reason1.jpg";
+import reason2 from "@/assets/img/reason2.jpg";
+import reason3 from "@/assets/img/reason3.jpg";
+import reason4 from "@/assets/img/reason4.jpg";
 
 import product1 from "@/assets/img/zhihuijiance.png";
 import product2 from "@/assets/img/gaoyabeng.png";
@@ -209,6 +266,8 @@ import img_tel from "@/assets/img/tel.png";
 import img_computer from "@/assets/img/computer.png";
 import img_qq from "@/assets/img/qq.png";
 import img_skill from "@/assets/img/skill.png";
+
+const windowWidth = ref(window.innerWidth);
 
 const swiperList = [
   {
@@ -270,95 +329,39 @@ const swiperList3 = [
   },
 ];
 
+const reasonList = [
+  [
+    {
+      title: "实力强大 工艺先进",
+      content:
+        "拥有强大的研发设计制造能力，专业从事先进的水液压的轴向柱塞泵、阀、能量回收等高效节能产品，确保可以及时提供高品质的产品给客户",
+      url: reason1,
+    },
+    {
+      title: "精密检测，品质优秀",
+      content:
+        "产品****全检设备，具备业内一流水准。我们的密封件皆需****的全检，每一件产品都经过检修人员检查批锋及其它不良缺陷，产品品质严格把控。",
+      url: reason3,
+    },
+  ],
+  [
+    {
+      title: "进口原料，国际认证",
+      content:
+        "材料均来自国际知名品牌，如美国杜邦，道康宁，信越化学等，产品都依照国标、AS568、JIS等标准生产,材质均通过ROHS、UL等第三方认证。",
+      url: reason2,
+    },
+    {
+      title: "完善售后，贴心服务",
+      content:
+        "完善的客户服务体系，认真做好售前，售中，售后的服务，专人24小时内处理和提交解决方案，为客户提供安心售后保障。",
+      url: reason4,
+    },
+  ],
+];
+
 const modules1 = [Navigation, Pagination, Scrollbar, A11y, Lazy, Autoplay];
 const modules2 = [EffectCoverflow, Pagination, Autoplay];
-
-const customerList = [
-  {
-    logo: logo_hp,
-    title:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-    content:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-  },
-  {
-    logo: logo_kk,
-    title:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-    content:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-  },
-  {
-    logo: logo_toyota,
-    title:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-    content:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-  },
-  {
-    logo: logo_kk,
-    title:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-    content:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-  },
-  {
-    logo: logo_hp,
-    title:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-    content:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-  },
-  {
-    logo: logo_toyota,
-    title:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-    content:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-  },
-  {
-    logo: logo_kk,
-    title:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-    content:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-  },
-  {
-    logo: logo_hp,
-    title:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-    content:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-  },
-  {
-    logo: logo_toyota,
-    title:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-    content:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-  },
-  {
-    logo: logo_hp,
-    title:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-    content:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-  },
-  {
-    logo: logo_kk,
-    title:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-    content:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-  },
-  {
-    logo: logo_hp,
-    title:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-    content:
-      "您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。您可以双击这里或者点击编辑按钮来修改内容。您还可以添加图标，按钮，图片等常用元素。",
-  },
-];
 
 const serverList = [
   {
@@ -520,12 +523,12 @@ onMounted(() => {
 }
 
 .aboutus-info {
-  padding-top: 20px;
+  padding-top: 30px;
   padding-left: 40px;
   padding-right: 0;
   font-size: 18px;
 
-  color: #808080;
+  color: #000000;
   line-height: 40px;
 }
 
@@ -557,6 +560,44 @@ onMounted(() => {
 
 #bigData .bigData-device {
   margin: 50px 0 20px;
+}
+
+#reason {
+  padding: 20px 0;
+  margin-top: 50px;
+}
+
+.reason-content {
+  padding: 10px 60px;
+}
+.reason-content-first {
+  margin-bottom: 2px;
+}
+.reason-content-first img {
+  width: 100%;
+  height: 100%;
+}
+
+.reason-content-right {
+  padding: 0px 10px 10px 2.4% !important;
+  border: 1px solid #ccc;
+}
+
+.reason-content-right div {
+  width: 20%;
+  height: 1px;
+  margin-bottom: 10px;
+  background-color: #ccc;
+}
+
+.reason-content-right h3 {
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+.reason-content-right p {
+  font-weight: 380;
+  font-size: 14px;
+  letter-spacing: 1px;
 }
 
 .solve-part {
@@ -736,6 +777,13 @@ onMounted(() => {
     width: 80%;
     margin-top: 20px;
     padding: 0 !important;
+  }
+
+  .reason-content {
+    padding: 0 30px !important;
+  }
+  .reason-content-first {
+    margin-bottom: 30px !important;
   }
 }
 </style>
