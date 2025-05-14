@@ -40,14 +40,7 @@ const routes = [
           title: "产品与解决方案",
         },
         children: [
-          {
-            path: "/software/smartTown",
-            name: "smartTown",
-            component: () => import("@/view/Software_smartTown.vue"),
-            meta: {
-              title: "软件产品丨智能小镇管理系统",
-            },
-          },
+          
           {
             path: "/software/bigData",
             name: "bigData",
