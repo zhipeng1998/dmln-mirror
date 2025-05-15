@@ -181,7 +181,23 @@
                 <p>{{ item[0].content }}</p>
               </el-col>
             </el-row>
-            <el-row gutter="2" class="reason-content-first">
+            <el-row
+              gutter="2"
+              class="reason-content-first hidden-sm hidden-md hidden-lg"
+            >
+              <el-col :span="windowWidth > 767 ? 12 : 24">
+                <img :src="item[1].url" alt="" />
+              </el-col>
+              <el-col
+                :span="windowWidth > 767 ? 12 : 24"
+                class="reason-content-right"
+              >
+                <h3>{{ item[1].title }}</h3>
+                <div></div>
+                <p>{{ item[1].content }}</p>
+              </el-col>
+            </el-row>
+            <el-row gutter="2" class="reason-content-first hidden-xs">
               <el-col
                 :span="windowWidth > 767 ? 12 : 24"
                 class="reason-content-right"
@@ -573,11 +589,13 @@ onMounted(() => {
 .reason-content-first img {
   width: 100%;
   height: 100%;
+  max-height: 194px;
 }
 
 .reason-content-right {
   padding: 0px 10px 10px 2.4% !important;
   border: 1px solid #ccc;
+  min-height: 194px;
 }
 
 .reason-content-right div {
