@@ -10,11 +10,11 @@
         </div>
         <div class="company-info">
           <span><img src="@/assets/img/youxiang.png" alt="logo" /></span>
-          <span class="company-info-text">邮箱：green-energy@brcc.com</span>
+          <span class="company-info-text">邮箱：greenbrcc@techbrc.com</span>
         </div>
         <div class="company-info">
           <span><img src="@/assets/img/dianhua.png" alt="logo" /></span>
-          <span class="company-info-text">联系电话：（086）135-6666-8888</span>
+          <span class="company-info-text">联系电话：（086）136-2185-3968</span>
         </div>
         <div class="company-info">
           <span><img src="@/assets/img/dizhi.png" alt="logo" /></span>
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="footer-bottom col-xs-12 col-sm-12 col-md-12">
-      <span>@2025 上海东铭绿能环保科技有限公司</span>
+      <span>@2025 东铭绿能（上海）科技有限公司</span>
       <span>苏ICP备2020055843号</span>
       <span>隐私策略</span>
     </div>

@@ -3,7 +3,9 @@
   <div id="header" class="container-fuild">
     <!-- 电脑导航 -->
     <div class="header-welcome">
-      <div>您好！欢迎来到上海东铭绿能环保科技网站！您身边的绿色能源专家！</div>
+      <div>
+        您好！欢迎来到东铭绿能（上海）科技有限公司网站！您身边的绿色能源专家！
+      </div>
       <div class="header-welcome-right">
         <span>设为首页</span>
         <div>｜</div>
