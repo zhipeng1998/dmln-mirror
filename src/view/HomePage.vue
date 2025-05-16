@@ -255,9 +255,9 @@ import { reactive, ref } from "vue";
 
 import Scroll from "./Scroll.vue";
 
-import banner1 from "@/assets/img/banner1.jpeg";
-import banner2 from "@/assets/img/banner2.jpg";
-import banner3 from "@/assets/img/banner3.jpg";
+import banner1 from "@/assets/img/new-banner1.jpg";
+import banner2 from "@/assets/img/new-banner2.jpg";
+import banner3 from "@/assets/img/new-banner3.jpg";
 
 import reason1 from "@/assets/img/reason1.jpg";
 import reason2 from "@/assets/img/reason2.jpg";
