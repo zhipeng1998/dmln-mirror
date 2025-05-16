@@ -255,9 +255,9 @@ import { reactive, ref } from "vue";
 
 import Scroll from "./Scroll.vue";
 
-import banner1 from "@/assets/img/banner1.jpeg";
-import banner2 from "@/assets/img/banner2.jpg";
-import banner3 from "@/assets/img/banner3.jpg";
+import banner1 from "@/assets/img/new-banner1.jpg";
+import banner2 from "@/assets/img/new-banner2.jpg";
+import banner3 from "@/assets/img/new-banner3.jpg";
 
 import reason1 from "@/assets/img/reason1.jpg";
 import reason2 from "@/assets/img/reason2.jpg";
@@ -432,7 +432,8 @@ onMounted(() => {
 /* 顶部轮播图 */
 #swiper {
   width: 100%;
-  height: 670px;
+  height: 720px;
+  margin-top: 120px;
 }
 
 /* 产品轮播图 */
@@ -454,6 +455,7 @@ onMounted(() => {
 }
 #swiper3 .banner-swiper img {
   width: 100%;
+  height: 100%;
 }
 
 #swiper2 .banner-swiper {
@@ -799,6 +801,10 @@ onMounted(() => {
   }
   .reason-content-first {
     margin-bottom: 30px !important;
+  }
+  #swiper {
+    width: 100%;
+    margin-top: 100px;
   }
 }
 </style>

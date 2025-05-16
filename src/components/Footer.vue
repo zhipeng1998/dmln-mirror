@@ -155,7 +155,7 @@
 
 @media screen and (max-width: 768px) {
   #footer {
-    height: 460px !important;
+    height: 500px !important;
   }
   .footer-right img {
     top: 20px !important;
@@ -176,7 +176,8 @@
     margin-top: 50px;
     gap: 0 !important;
     height: 50px;
-    padding: 20px 0 0 0 !important;
+    padding: 40px 0 0 0 !important;
+    font-size: 13px;
   }
 }
 </style>
