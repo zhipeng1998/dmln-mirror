@@ -159,7 +159,7 @@ import product12 from "@/assets/img/product12.png";
 import product13 from "@/assets/img/product13.png";
 
 import product21 from "@/assets/img/product21.png";
-import product22 from "@/assets/img/product22.png";
+import product22 from "@/assets/img/zhihuijiance.png";
 import product23 from "@/assets/img/product23.png";
 import product24 from "@/assets/img/product24.png";
 
