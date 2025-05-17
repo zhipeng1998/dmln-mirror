@@ -8,16 +8,22 @@
       <span>联系我们</span>
     </div>
     <el-row :gutter="80" class="concat-pub">
-      <el-col :span="windowWidth > 767 ? 16 : 24">
+      <el-col
+        :span="windowWidth > 767 ? 16 : 24"
+        style="padding-left: 20, padding-right: 20"
+      >
         <div class="concat-map">
           <img src="@/assets/img/map.png" alt="联系我们" />
         </div>
       </el-col>
-      <el-col :span="windowWidth > 767 ? 8 : 24">
+      <el-col
+        :span="windowWidth > 767 ? 8 : 24"
+        style="padding-left: 20, padding-right: 20"
+      >
         <div class="concat-right" style="margin-top: 3px">
           <div>
             <el-row>
-              <el-col :span="12" class="map-right map-right-left">
+              <el-col :span="8" class="map-right map-right-left">
                 <img
                   src="@/assets/img/beijing.png"
                   alt="联系我们"
@@ -25,7 +31,7 @@
                 />
                 <span style="font-size: 20px">北京</span>
               </el-col>
-              <el-col :span="12" class="map-right map-right-right">
+              <el-col :span="16" class="map-right map-right-right">
                 <p>联系人：某某</p>
                 <p>电话：00000000</p>
                 <p>传真：00000000</p>
@@ -35,7 +41,7 @@
           </div>
           <div>
             <el-row>
-              <el-col :span="12" class="map-right map-right-left">
+              <el-col :span="8" class="map-right map-right-left">
                 <img
                   src="@/assets/img/shanghai.png"
                   alt="联系我们"
@@ -43,11 +49,11 @@
                 />
                 <span style="font-size: 20px">上海</span>
               </el-col>
-              <el-col :span="12" class="map-right map-right-right">
-                <p>联系人：某某</p>
-                <p>电话：00000000</p>
-                <p>传真：00000000</p>
-                <p>地址：上海市</p>
+              <el-col :span="16" class="map-right map-right-right">
+                <p>联系人：游先生</p>
+                <p>电话：（086）136-2185-3968</p>
+                <p>邮箱：greenbrcc@techbrc.com</p>
+                <p>地址：浦东新区金桥镇华虹创新园16号楼7层</p>
               </el-col>
             </el-row>
           </div>
@@ -120,7 +126,12 @@ onMounted(() => {
 }
 .map-right {
   display: flex;
+  min-height: 200px;
   flex-direction: column;
+}
+
+.map-right p {
+  margin-bottom: 5px;
 }
 
 .map-right-left {
@@ -178,11 +189,12 @@ onMounted(() => {
     display: none;
   }
   .concat-right {
+    padding: 5px;
     margin-top: 20px !important;
   }
   .concat-right div {
     width: 100%;
-    height: 140px;
+    height: 200px;
   }
 }
 </style>

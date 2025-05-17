@@ -23,9 +23,15 @@
       >
         <img class="swiper-lazy" :data-src="item.img" alt="轮播图" />
         <div class="swiper-lazy-preloader"></div>
-        <div class="swiper-slide-title">
-          <h1>{{ item.title }}</h1>
-          <p>{{ item.content }}</p>
+        <div
+          :class="
+            index == 2
+              ? 'swiper-slide-title special-title'
+              : 'swiper-slide-title'
+          "
+        >
+          <h1 className="font-style">{{ item.title }}</h1>
+          <p className="font-style">{{ item.content }}</p>
         </div>
       </swiper-slide>
       <div class="swiper-pagination"></div>
@@ -45,7 +51,7 @@
         <div class="col-xs-12 col-sm-12 col-md-3 wow zoomIn">
           <img
             class="img-responsive"
-            src="@/assets/img/aboutus-L1.png"
+            src="@/assets/img/aboutus-L2.png"
             alt="东铭绿能"
           />
         </div>
@@ -255,7 +261,7 @@ import { reactive, ref } from "vue";
 
 import Scroll from "./Scroll.vue";
 
-import banner1 from "@/assets/img/new-banner1.jpg";
+import banner1 from "@/assets/img/new-banner5.jpg";
 import banner2 from "@/assets/img/new-banner2.jpg";
 import banner3 from "@/assets/img/new-banner3.jpg";
 
@@ -285,18 +291,18 @@ const windowWidth = ref(window.innerWidth);
 const swiperList = [
   {
     img: banner1,
-    title: "绿能",
-    content: "共建美好未来",
+    title: "东铭绿能",
+    content: "无限可能",
   },
   {
     img: banner2,
-    title: "绿能",
-    content: "共建美好未来",
+    title: "东铭绿能",
+    content: "无限可能",
   },
   {
     img: banner3,
-    title: "绿能",
-    content: "共建美好未来",
+    title: "东铭绿能",
+    content: "无限可能",
   },
 ];
 
@@ -424,6 +430,10 @@ onMounted(() => {
 </script>
 
 <style scoped>
+@font-face {
+  font-family: "Wanshi";
+  src: url("src/assets/fonts/wanshi.ttf") format("truetype");
+}
 /* 整体盒子 */
 #HomePage {
   width: 100%;
@@ -484,34 +494,45 @@ onMounted(() => {
   height: 100%;
 }
 
+.font-style {
+  font-family: "Wanshi", "STHeiti", "华文彩云" !important;
+  letter-spacing: 10px;
+  font-size: 50px;
+  font-weight: bolder;
+  font-style: italic;
+  color: #fff;
+  -webkit-text-stroke: 0.1px #7cb772;
+  -webkit-text-fill-color: #fff;
+  text-shadow: 1px 0px #7cb772, 1px 2px #7cb772, 3px 1px #7cb772;
+}
+
 #swiper .banner-swiper .swiper-slide-title {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 24%;
+  left: 20px;
   z-index: 999999999;
-  width: 100%;
-  height: 100%;
-  text-align: center;
+  width: 70%;
+  height: 50%;
+  text-align: left;
   line-height: 80px;
 }
 
+.special-title {
+  top: 10% !important;
+}
+
 #swiper .banner-swiper .swiper-slide-title > h1 {
-  font-size: 26px;
   margin-top: 12%;
   width: 50%;
   position: relative;
-  left: 23.8%;
+  left: 13%;
   top: -14px;
-  color: #5dd28d;
 }
 
 #swiper .banner-swiper .swiper-slide-title > p {
-  font-weight: 700;
-  font-size: 25px;
-  color: #2a82e4;
   width: 50%;
   position: relative;
-  left: 32%;
+  left: 19%;
   top: -36px;
 }
 
@@ -716,14 +737,20 @@ onMounted(() => {
     margin-top: 80px;
   }
   .swiper-slide-title {
-    top: 0px !important;
-    left: -20px !important;
+    width: 90% !important;
+    top: 30% !important;
+    left: 1% !important;
+  }
+  .special-title {
+    top: -1% !important;
+    left: -10% !important;
   }
   .swiper-slide-title h1 {
     font-size: 18px !important;
   }
   .swiper-slide-title p {
     font-size: 18px !important;
+    top: -48px !important;
   }
   .swiper {
     --swiper-theme-color: #2a82e4;
