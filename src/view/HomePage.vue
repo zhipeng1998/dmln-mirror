@@ -51,7 +51,7 @@
         <div class="col-xs-12 col-sm-12 col-md-3 wow zoomIn">
           <img
             class="img-responsive"
-            :src="aboutus"
+            src="@/assets/img/Aboutus-L2.png"
             alt="东铭绿能"
           />
         </div>
@@ -260,10 +260,6 @@ import "swiper/css/effect-coverflow";
 import { reactive, ref } from "vue";
 
 import Scroll from "./Scroll.vue";
-
-import aboutus from "@/assets/img/aboutus-L2.png";
-// import banner1 from "@/assets/img/new-banner5.jpg";
-
 
 import banner1 from "@/assets/img/new-banner5.jpg";
 import banner2 from "@/assets/img/new-banner2.jpg";
