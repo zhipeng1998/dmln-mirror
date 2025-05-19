@@ -90,6 +90,9 @@
             <el-button type="danger" style="width: 120px" @click="onSubmit"
               >提交</el-button
             >
+            <el-button type="danger" style="width: 120px" @click="onSubmitTest"
+              >测试连接</el-button
+            >
           </el-form-item>
         </el-col>
       </el-form>
@@ -99,6 +102,7 @@
 
 <script setup name="NewsInformation">
 import { reactive, ref } from "vue";
+import { insertCustomer, getAllCustomer } from "../utils/supabase";
 
 const labelPosition = ref("right");
 const itemLabelPosition = ref("");
@@ -123,6 +127,23 @@ onMounted(() => {
   var wow = new WOW();
   wow.init();
 });
+
+const onSubmitTest = async () => {
+  console.log(formLabelAlign, formLabelAlign.name);
+  const { data, error } = await insertCustomer({
+    name: formLabelAlign.name,
+    email: "",
+    phone: "",
+    country: "",
+    province: "",
+    city: "",
+    company: "",
+    position: "",
+    product: "",
+    requirement: "",
+  });
+  console.log(data, error);
+};
 </script>
 
 <style scoped>
