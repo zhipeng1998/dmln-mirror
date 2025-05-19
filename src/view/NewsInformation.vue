@@ -206,7 +206,6 @@ import { reactive, ref, onMounted } from "vue";
 import { insertCustomer, getAllCustomer } from "../utils/supabase";
 import type { FormInstance } from "element-plus";
 import { ElMessage } from "element-plus";
-import CountryList from "../components/CountryList.vue";
 
 const formRef = ref<FormInstance>();
 

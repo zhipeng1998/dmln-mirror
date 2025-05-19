@@ -109,7 +109,7 @@
             <img
               :src="item.img"
               alt="东铭绿能"
-              :style="{ width: index === 0 ? '50%' : '80%' }"
+              :style="{ width: index === 0 ? curMiddleWidth : curCommonWidth }"
               @click="gotoPage(item)"
             />
           </div>
@@ -264,7 +264,7 @@ import "swiper/css/scrollbar";
 import "swiper/css/lazy";
 import "swiper/css/autoplay";
 import "swiper/css/effect-coverflow";
-import { reactive, ref } from "vue";
+import { reactive, ref, computed } from "vue";
 
 import Scroll from "./Scroll.vue";
 
@@ -294,6 +294,13 @@ import img_qq from "@/assets/img/qq.png";
 import img_skill from "@/assets/img/skill.png";
 
 const windowWidth = ref(window.innerWidth);
+
+const curCommonWidth = computed(() => {
+  return windowWidth.value > 768 ? "80%" : "100%";
+});
+const curMiddleWidth = computed(() => {
+  return windowWidth.value > 768 ? "50%" : "80%";
+});
 
 const swiperList = [
   {
@@ -746,8 +753,8 @@ onMounted(() => {
   }
   .swiper-slide-title {
     width: 90% !important;
-    top: 30% !important;
-    left: 1% !important;
+    top: -10% !important;
+    left: -6% !important;
   }
   /* .special-title {
     top: -1% !important;
@@ -758,7 +765,8 @@ onMounted(() => {
   }
   .swiper-slide-title p {
     font-size: 18px !important;
-    top: -48px !important;
+    top: -54% !important;
+    left: 23% !important;
   }
   .swiper {
     --swiper-theme-color: #2a82e4;
