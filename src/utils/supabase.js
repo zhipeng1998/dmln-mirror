@@ -31,4 +31,4 @@ export const insertCustomer = async (customer) => {
   return { data, error };
 };
 
-console.log(await insertCustomer(customer));
+// console.log(await insertCustomer(customer));
