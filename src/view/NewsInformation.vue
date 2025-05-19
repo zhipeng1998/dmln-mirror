@@ -137,7 +137,12 @@
               label="需求描述"
               prop="requirement"
             >
-              <el-input v-model="formLabelAlign.requirement" />
+              <el-input
+                type="textarea"
+                :autosize="{ maxRows: 3 }"
+                v-model="formLabelAlign.requirement"
+                style="max-height: 80px; overflow-y: auto"
+              />
             </el-form-item>
           </el-col>
         </el-row>
@@ -201,6 +206,7 @@ import { reactive, ref, onMounted } from "vue";
 import { insertCustomer, getAllCustomer } from "../utils/supabase";
 import type { FormInstance } from "element-plus";
 import { ElMessage } from "element-plus";
+import CountryList from "../components/CountryList.vue";
 
 const formRef = ref<FormInstance>();
 
@@ -270,7 +276,7 @@ const onSubmit = async (formEl) => {
   border-radius: 10px;
   padding: 10px;
   position: relative;
-  top: 70px;
+  top: 45px;
   left: 10%;
   background: #fff;
   padding-left: 30px;
