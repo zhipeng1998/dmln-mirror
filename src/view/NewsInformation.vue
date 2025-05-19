@@ -15,17 +15,23 @@
         <el-row :gutter="130">
           <el-col :span="windowWidth > 767 ? 12 : 24">
             <el-form-item
-              :required="true"
               label="姓名"
-             
+              prop="name"
+              :rules="[
+                {
+                  required: true,
+                  message: '请输入姓名',
+                  trigger: 'blur',
+                },
+              ]"
             >
               <el-input v-model="formLabelAlign.name" />
             </el-form-item>
           </el-col>
           <el-col :span="windowWidth > 767 ? 12 : 24">
             <el-form-item
-              :required="true"
               label="电子邮箱"
+              prop="email"
               :rules="[
                 {
                   required: true,
@@ -43,53 +49,112 @@
             </el-form-item>
           </el-col>
           <el-col :span="windowWidth > 767 ? 12 : 24">
-            <el-form-item :required="true" label="联系电话">
+            <el-form-item
+              :rules="[
+                {
+                  required: true,
+                  message: '请输入联系电话',
+                  trigger: 'blur',
+                },
+                {
+                  validator: (rule, value, callback) => {
+                    const phoneRegex = /^1[3-9]\d{9}$/;
+                    if (!phoneRegex.test(value)) {
+                      callback(new Error('请输入正确的手机号'));
+                    } else {
+                      callback();
+                    }
+                  },
+                  trigger: ['blur', 'change'],
+                },
+              ]"
+              label="联系电话"
+              prop="phone"
+            >
               <el-input v-model="formLabelAlign.phone" />
             </el-form-item>
           </el-col>
           <el-col :span="windowWidth > 767 ? 12 : 24">
-            <el-form-item label="国家">
+            <el-form-item label="国家" prop="country">
               <el-input v-model="formLabelAlign.country" />
             </el-form-item>
           </el-col>
           <el-col :span="windowWidth > 767 ? 12 : 24">
-            <el-form-item label="省份">
-              <el-input v-model="formLabelAlign.provence" />
+            <el-form-item label="省份" prop="province">
+              <el-input v-model="formLabelAlign.province" />
             </el-form-item>
           </el-col>
           <el-col :span="windowWidth > 767 ? 12 : 24">
-            <el-form-item label="城市">
+            <el-form-item label="城市" prop="city">
               <el-input v-model="formLabelAlign.city" />
             </el-form-item>
           </el-col>
           <el-col :span="windowWidth > 767 ? 12 : 24">
-            <el-form-item :required="true" label="公司">
+            <el-form-item
+              :rules="[
+                {
+                  required: true,
+                  message: '请输入公司',
+                  trigger: 'blur',
+                },
+              ]"
+              label="公司"
+              prop="company"
+            >
               <el-input v-model="formLabelAlign.company" />
             </el-form-item>
           </el-col>
           <el-col :span="windowWidth > 767 ? 12 : 24">
-            <el-form-item label="职位">
+            <el-form-item label="职位" prop="position">
               <el-input v-model="formLabelAlign.position" />
             </el-form-item>
           </el-col>
           <el-col :span="windowWidth > 767 ? 12 : 24">
             <el-form-item
-              :required="true"
+              :rules="[
+                {
+                  required: true,
+                  message: '请输入产品',
+                  trigger: 'blur',
+                },
+              ]"
               label="产品"
+              prop="product"
               :label-position="itemLabelPosition"
             >
               <el-input v-model="formLabelAlign.product" />
             </el-form-item>
           </el-col>
           <el-col :span="24">
-            <el-form-item :required="true" label="需求描述">
+            <el-form-item
+              :rules="[
+                {
+                  required: true,
+                  message: '请输入需求描述',
+                  trigger: 'blur',
+                },
+              ]"
+              label="需求描述"
+              prop="requirement"
+            >
               <el-input v-model="formLabelAlign.requirement" />
             </el-form-item>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="windowWidth > 767 ? 1 : 2">
-            <el-checkbox></el-checkbox>
+            <el-form-item
+              :rules="[
+                {
+                  required: true,
+                  message: '*',
+                  trigger: 'blur',
+                },
+              ]"
+              prop="require1"
+            >
+              <el-checkbox v-model="formLabelAlign.require1"></el-checkbox>
+            </el-form-item>
           </el-col>
           <el-col :span="windowWidth > 767 ? 23 : 22">
             <p class="form-item">
@@ -97,7 +162,18 @@
             </p>
           </el-col>
           <el-col :span="windowWidth > 767 ? 1 : 2">
-            <el-checkbox></el-checkbox>
+            <el-form-item
+              :rules="[
+                {
+                  required: true,
+                  message: '*',
+                  trigger: 'blur',
+                },
+              ]"
+              prop="require2"
+            >
+              <el-checkbox v-model="formLabelAlign.require2"></el-checkbox>
+            </el-form-item>
           </el-col>
           <el-col :span="windowWidth > 767 ? 23 : 22">
             <p class="form-item">
@@ -121,11 +197,12 @@
 </template>
 
 <script lang="ts" setup name="NewsInformation">
-import { reactive, ref ,onMounted} from "vue";
+import { reactive, ref, onMounted } from "vue";
 import { insertCustomer, getAllCustomer } from "../utils/supabase";
-import type { FormInstance } from 'element-plus';
+import type { FormInstance } from "element-plus";
+import { ElMessage } from "element-plus";
 
-const formRef = ref<FormInstance>()
+const formRef = ref<FormInstance>();
 
 const labelPosition = ref("right");
 const itemLabelPosition = ref("");
@@ -134,39 +211,44 @@ const formLabelAlign = reactive({
   email: "",
   phone: "",
   country: "",
-  provence: "",
+  province: "",
   city: "",
   company: "",
   position: "",
   product: "",
   requirement: "",
+  require1: false,
+  require2: false,
 });
 
 const windowWidth = ref(window.innerWidth);
 
 const onSubmit = async (formEl) => {
-  console.log(formEl,{ ...formLabelAlign }, formLabelAlign.name);
-    formEl.validate((valid) => {
+  console.log(formEl, { ...formLabelAlign }, formLabelAlign.name);
+  if (!formLabelAlign.require1 || !formLabelAlign.require2) {
+    ElMessage.error("请接受条款");
+    return;
+  }
+  formEl.validate(async (valid) => {
+    let customer = { ...formLabelAlign };
+    delete customer.require1;
+    delete customer.require2;
     if (valid) {
-      console.log('submit!')
+      const { data, error } = await insertCustomer(customer);
+      if (error) {
+        ElMessage.error("提交失败");
+      } else {
+        ElMessage({
+          message: "提交成功",
+          type: "success",
+        });
+        formEl.resetFields();
+      }
     } else {
-      console.log('error submit!')
-      return false
+      ElMessage.error("请填写必填信息");
+      return false;
     }
-  })
-  // const { data, error } = await insertCustomer({
-  //   name: formLabelAlign.name,
-  //   email: "",
-  //   phone: "",
-  //   country: "",
-  //   province: "",
-  //   city: "",
-  //   company: "",
-  //   position: "",
-  //   product: "",
-  //   requirement: "",
-  // });
-  // console.log(data, error);
+  });
 };
 </script>
 
