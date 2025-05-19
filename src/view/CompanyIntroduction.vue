@@ -83,8 +83,10 @@ onMounted(() => {
 }
 .concat-top {
   width: 100%;
-  height: 366px;
+  height: auto;
   margin-top: 120px;
+  display: flex;
+  align-items: center;
 }
 .concat-pub {
   margin-top: 0px;
@@ -95,11 +97,9 @@ onMounted(() => {
   position: absolute;
   font-size: 32px;
   text-align: center;
-  top: 260px;
 }
 .concat-top img {
   width: 100%;
-  height: 100%;
 }
 .concat-text {
   width: 100%;
@@ -178,12 +178,10 @@ onMounted(() => {
 @media screen and (max-width: 768px) {
   .concat-top {
     width: 100%;
-    height: 116px;
     margin-top: 100px;
   }
   .concat-top p {
     font-size: 16px;
-    top: 140px;
   }
   .concat-text {
     display: none;
