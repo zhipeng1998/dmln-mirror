@@ -6,6 +6,7 @@
         欢迎与我们联系，为了能够更好地处理您反馈的信息，请您如实填写表单内容，标注"*"为必填
       </p>
       <el-form
+        ref="formRef"
         label-position="top"
         label-width="auto"
         :model="formLabelAlign"
@@ -13,12 +14,31 @@
       >
         <el-row :gutter="130">
           <el-col :span="windowWidth > 767 ? 12 : 24">
-            <el-form-item :required="true" label="姓名">
+            <el-form-item
+              :required="true"
+              label="姓名"
+             
+            >
               <el-input v-model="formLabelAlign.name" />
             </el-form-item>
           </el-col>
           <el-col :span="windowWidth > 767 ? 12 : 24">
-            <el-form-item :required="true" label="电子邮箱">
+            <el-form-item
+              :required="true"
+              label="电子邮箱"
+              :rules="[
+                {
+                  required: true,
+                  message: '请输入邮箱',
+                  trigger: 'blur',
+                },
+                {
+                  type: 'email',
+                  message: '请输入正确的邮箱地址',
+                  trigger: ['blur', 'change'],
+                },
+              ]"
+            >
               <el-input v-model="formLabelAlign.email" />
             </el-form-item>
           </el-col>
@@ -63,7 +83,7 @@
           </el-col>
           <el-col :span="24">
             <el-form-item :required="true" label="需求描述">
-              <el-input v-model="formLabelAlign.info" />
+              <el-input v-model="formLabelAlign.requirement" />
             </el-form-item>
           </el-col>
         </el-row>
@@ -87,11 +107,11 @@
         </el-row>
         <el-col :span="12" :offset="8">
           <el-form-item>
-            <el-button type="danger" style="width: 120px" @click="onSubmit"
+            <el-button
+              type="danger"
+              style="width: 120px"
+              @click="onSubmit(formRef)"
               >提交</el-button
-            >
-            <el-button type="danger" style="width: 120px" @click="onSubmitTest"
-              >测试连接</el-button
             >
           </el-form-item>
         </el-col>
@@ -100,9 +120,12 @@
   </div>
 </template>
 
-<script setup name="NewsInformation">
-import { reactive, ref } from "vue";
+<script lang="ts" setup name="NewsInformation">
+import { reactive, ref ,onMounted} from "vue";
 import { insertCustomer, getAllCustomer } from "../utils/supabase";
+import type { FormInstance } from 'element-plus';
+
+const formRef = ref<FormInstance>()
 
 const labelPosition = ref("right");
 const itemLabelPosition = ref("");
@@ -116,33 +139,34 @@ const formLabelAlign = reactive({
   company: "",
   position: "",
   product: "",
-  info: "",
+  requirement: "",
 });
-import WOW from "wow.js";
-import { onMounted } from "vue";
 
 const windowWidth = ref(window.innerWidth);
 
-onMounted(() => {
-  var wow = new WOW();
-  wow.init();
-});
-
-const onSubmitTest = async () => {
-  console.log(formLabelAlign, formLabelAlign.name);
-  const { data, error } = await insertCustomer({
-    name: formLabelAlign.name,
-    email: "",
-    phone: "",
-    country: "",
-    province: "",
-    city: "",
-    company: "",
-    position: "",
-    product: "",
-    requirement: "",
-  });
-  console.log(data, error);
+const onSubmit = async (formEl) => {
+  console.log(formEl,{ ...formLabelAlign }, formLabelAlign.name);
+    formEl.validate((valid) => {
+    if (valid) {
+      console.log('submit!')
+    } else {
+      console.log('error submit!')
+      return false
+    }
+  })
+  // const { data, error } = await insertCustomer({
+  //   name: formLabelAlign.name,
+  //   email: "",
+  //   phone: "",
+  //   country: "",
+  //   province: "",
+  //   city: "",
+  //   company: "",
+  //   position: "",
+  //   product: "",
+  //   requirement: "",
+  // });
+  // console.log(data, error);
 };
 </script>
 
