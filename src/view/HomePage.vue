@@ -21,7 +21,7 @@
         v-for="(item, index) in swiperList"
         :key="index"
       >
-        <img class="swiper-lazy" :data-src="item.img" alt="轮播图" />
+        <img class="swiper-lazy" :data-src="item.img" alt="东铭绿能" />
         <div class="swiper-lazy-preloader"></div>
         <div
           :class="
@@ -93,7 +93,7 @@
         :coverflow-effect="{
           rotate: 0,
           stretch: -50,
-          depth: 800,
+          depth: 400,
           modifier: 1,
           slideShadows: true,
         }"
@@ -105,7 +105,14 @@
           v-for="(item, index) in swiperList2"
           :key="index"
         >
-          <img :src="item.img" alt="轮播图" @click="gotoPage(item)" />
+          <div class="banner-swiper-box">
+            <img
+              :src="item.img"
+              alt="东铭绿能"
+              :style="{ width: index === 0 ? '50%' : '80%' }"
+              @click="gotoPage(item)"
+            />
+          </div>
         </swiper-slide>
       </swiper>
       <!-- 新闻与动态 -->
@@ -148,7 +155,7 @@
               <a href="">了解详情 > </a>
             </div>
             <div class="swiper-slide-right">
-              <img class="swiper-lazy" :data-src="item.img" alt="轮播图" />
+              <img class="swiper-lazy" :data-src="item.img" alt="东铭绿能" />
               <div class="swiper-lazy-preloader"></div>
             </div>
           </div>
@@ -175,7 +182,7 @@
             class="wow fadeInUp"
           >
             <el-row gutter="2" class="reason-content-first">
-              <el-col :span="windowWidth > 767 ? 12 : 24">
+              <el-col :span="windowWidth > 767 ? 12 : 24" style="display: flex">
                 <img :src="item[0].url" alt="" />
               </el-col>
               <el-col
@@ -212,7 +219,7 @@
                 <div></div>
                 <p>{{ item[1].content }}</p>
               </el-col>
-              <el-col :span="windowWidth > 767 ? 12 : 24">
+              <el-col :span="windowWidth > 767 ? 12 : 24" style="display: flex">
                 <img :src="item[1].url" alt="" />
               </el-col>
             </el-row>
@@ -442,14 +449,22 @@ onMounted(() => {
 /* 顶部轮播图 */
 #swiper {
   width: 100%;
-  height: 720px;
+  /* height: 120px; */
   margin-top: 120px;
 }
 
 /* 产品轮播图 */
 #swiper2 {
   width: 70%;
-  height: 400px;
+  height: 450px;
+}
+
+.banner-swiper-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #swiper3 {
@@ -475,7 +490,6 @@ onMounted(() => {
 }
 #swiper2 .banner-swiper img {
   width: 100%;
-  height: 100%;
 }
 
 #swiper .banner-swiper {
@@ -486,7 +500,6 @@ onMounted(() => {
 
 #swiper2 img {
   width: 100%;
-  height: 100%;
 }
 
 #swiper .banner-swiper img {
@@ -515,10 +528,6 @@ onMounted(() => {
   height: 50%;
   text-align: left;
   line-height: 80px;
-}
-
-.special-title {
-  top: 10% !important;
 }
 
 #swiper .banner-swiper .swiper-slide-title > h1 {
@@ -611,8 +620,7 @@ onMounted(() => {
 }
 .reason-content-first img {
   width: 100%;
-  height: 100%;
-  max-height: 194px;
+  /* max-height: 194px; */
 }
 
 .reason-content-right {
@@ -741,10 +749,10 @@ onMounted(() => {
     top: 30% !important;
     left: 1% !important;
   }
-  .special-title {
+  /* .special-title {
     top: -1% !important;
     left: -10% !important;
-  }
+  } */
   .swiper-slide-title h1 {
     font-size: 18px !important;
   }
