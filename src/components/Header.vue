@@ -124,8 +124,6 @@ function navClick(index, name, path) {
   navIndex.value = index;
   sessionStorage.setItem("navIndex", index);
   menuName.value = name;
-  console.log(name);
-  console.log(path);
   router.push({ path });
 }
 function menuClick() {

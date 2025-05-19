@@ -137,7 +137,12 @@
               label="需求描述"
               prop="requirement"
             >
-              <el-input v-model="formLabelAlign.requirement" />
+              <el-input
+                type="textarea"
+                :autosize="{ maxRows: 3 }"
+                v-model="formLabelAlign.requirement"
+                style="max-height: 80px; overflow-y: auto"
+              />
             </el-form-item>
           </el-col>
         </el-row>
@@ -270,7 +275,7 @@ const onSubmit = async (formEl) => {
   border-radius: 10px;
   padding: 10px;
   position: relative;
-  top: 70px;
+  top: 45px;
   left: 10%;
   background: #fff;
   padding-left: 30px;
