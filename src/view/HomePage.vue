@@ -753,20 +753,29 @@ onMounted(() => {
   }
   .swiper-slide-title {
     width: 90% !important;
-    top: -10% !important;
-    left: -6% !important;
+    top: 0px !important;
+    left: 30px !important;
+    height: 100% !important;
   }
   /* .special-title {
     top: -1% !important;
     left: -10% !important;
   } */
   .swiper-slide-title h1 {
-    font-size: 18px !important;
+    width: 100% !important;
+    font-size: 16px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
   }
   .swiper-slide-title p {
-    font-size: 18px !important;
-    top: -54% !important;
-    left: 23% !important;
+    width: 100% !important;
+    font-size: 16px !important;
+    left: 24px !important;
+    top: 0 !important;
+    height: 20px;
+    line-height: 20px;
   }
   .swiper {
     --swiper-theme-color: #2a82e4;
